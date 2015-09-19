@@ -1,0 +1,307 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6AAC00041BAD98FD00190C0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAC00031BAD98FD00190C0D /* AppDelegate.swift */; };
+		6AAC00061BAD98FD00190C0D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAC00051BAD98FD00190C0D /* ViewController.swift */; };
+		6AAC00091BAD98FD00190C0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AAC00071BAD98FD00190C0D /* Main.storyboard */; };
+		6AAC000C1BAD98FD00190C0D /* Lolita.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6AAC000A1BAD98FD00190C0D /* Lolita.xcdatamodeld */; };
+		6AAC000E1BAD98FD00190C0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AAC000D1BAD98FD00190C0D /* Assets.xcassets */; };
+		6AAC00111BAD98FD00190C0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AAC000F1BAD98FD00190C0D /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6AAC00001BAD98FD00190C0D /* Lolita.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lolita.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6AAC00031BAD98FD00190C0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6AAC00051BAD98FD00190C0D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6AAC00081BAD98FD00190C0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6AAC000B1BAD98FD00190C0D /* Lolita.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Lolita.xcdatamodel; sourceTree = "<group>"; };
+		6AAC000D1BAD98FD00190C0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6AAC00101BAD98FD00190C0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6AAC00121BAD98FD00190C0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6AACFFFD1BAD98FD00190C0D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6AAC00011BAD98FD00190C0D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6AAC00001BAD98FD00190C0D /* Lolita.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6AAC00021BAD98FD00190C0D /* Lolita */ = {
+			isa = PBXGroup;
+			children = (
+				6AAC00031BAD98FD00190C0D /* AppDelegate.swift */,
+				6AAC00051BAD98FD00190C0D /* ViewController.swift */,
+				6AAC00071BAD98FD00190C0D /* Main.storyboard */,
+				6AAC000D1BAD98FD00190C0D /* Assets.xcassets */,
+				6AAC000F1BAD98FD00190C0D /* LaunchScreen.storyboard */,
+				6AAC00121BAD98FD00190C0D /* Info.plist */,
+				6AAC000A1BAD98FD00190C0D /* Lolita.xcdatamodeld */,
+			);
+			path = Lolita;
+			sourceTree = "<group>";
+		};
+		6AACFFF71BAD98FD00190C0D = {
+			isa = PBXGroup;
+			children = (
+				6AAC00021BAD98FD00190C0D /* Lolita */,
+				6AAC00011BAD98FD00190C0D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6AACFFFF1BAD98FD00190C0D /* Lolita */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6AAC00151BAD98FD00190C0D /* Build configuration list for PBXNativeTarget "Lolita" */;
+			buildPhases = (
+				6AACFFFC1BAD98FD00190C0D /* Sources */,
+				6AACFFFD1BAD98FD00190C0D /* Frameworks */,
+				6AACFFFE1BAD98FD00190C0D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Lolita;
+			productName = Lolita;
+			productReference = 6AAC00001BAD98FD00190C0D /* Lolita.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6AACFFF81BAD98FD00190C0D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = zhowkevin;
+				TargetAttributes = {
+					6AACFFFF1BAD98FD00190C0D = {
+						CreatedOnToolsVersion = 7.0;
+					};
+				};
+			};
+			buildConfigurationList = 6AACFFFB1BAD98FD00190C0D /* Build configuration list for PBXProject "Lolita" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6AACFFF71BAD98FD00190C0D;
+			productRefGroup = 6AAC00011BAD98FD00190C0D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6AACFFFF1BAD98FD00190C0D /* Lolita */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6AACFFFE1BAD98FD00190C0D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6AAC00111BAD98FD00190C0D /* LaunchScreen.storyboard in Resources */,
+				6AAC000E1BAD98FD00190C0D /* Assets.xcassets in Resources */,
+				6AAC00091BAD98FD00190C0D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6AACFFFC1BAD98FD00190C0D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6AAC00061BAD98FD00190C0D /* ViewController.swift in Sources */,
+				6AAC000C1BAD98FD00190C0D /* Lolita.xcdatamodeld in Sources */,
+				6AAC00041BAD98FD00190C0D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		6AAC00071BAD98FD00190C0D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6AAC00081BAD98FD00190C0D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6AAC000F1BAD98FD00190C0D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6AAC00101BAD98FD00190C0D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6AAC00131BAD98FD00190C0D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6AAC00141BAD98FD00190C0D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6AAC00161BAD98FD00190C0D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Lolita/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kevinzhow.Lolita;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		6AAC00171BAD98FD00190C0D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Lolita/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kevinzhow.Lolita;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6AAC00151BAD98FD00190C0D /* Build configuration list for PBXNativeTarget "Lolita" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6AAC00161BAD98FD00190C0D /* Debug */,
+				6AAC00171BAD98FD00190C0D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		6AACFFFB1BAD98FD00190C0D /* Build configuration list for PBXProject "Lolita" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6AAC00131BAD98FD00190C0D /* Debug */,
+				6AAC00141BAD98FD00190C0D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		6AAC000A1BAD98FD00190C0D /* Lolita.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6AAC000B1BAD98FD00190C0D /* Lolita.xcdatamodel */,
+			);
+			currentVersion = 6AAC000B1BAD98FD00190C0D /* Lolita.xcdatamodel */;
+			path = Lolita.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 6AACFFF81BAD98FD00190C0D /* Project object */;
+}
