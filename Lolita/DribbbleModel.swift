@@ -44,7 +44,7 @@ struct DribbbleUser {
     let html_url: String
     let avatar_url: String
     let bio: String
-    let location: String
+    let location: String?
     let links: JSONDictionary
     let buckets_count: Int
     let comments_received_count: Int
@@ -132,7 +132,6 @@ func userFromInfo(info: JSONDictionary) -> DribbbleUser? {
         html_url = info["html_url"] as? String,
         avatar_url = info["avatar_url"] as? String,
         bio = info["bio"] as? String,
-        location = info["location"] as? String,
         links = info["links"] as? JSONDictionary,
         buckets_count = info["buckets_count"] as? Int,
         comments_received_count = info["comments_received_count"] as? Int,
@@ -157,6 +156,7 @@ func userFromInfo(info: JSONDictionary) -> DribbbleUser? {
         created_at = dateFromString(info["created_at"]),
         updated_at = dateFromString(info["updated_at"])
     {
+        let location = info["location"] as? String
     
         return DribbbleUser(id: id, name: name, username: username, html_url: html_url, avatar_url: avatar_url, bio: bio, location: location, links: links, buckets_count: buckets_count, comments_received_count: comments_received_count, followers_count: followers_count, followings_count: followings_count, likes_count: likes_count, likes_received_count: likes_received_count, projects_count: projects_count, rebounds_received_count: rebounds_received_count, shots_count: shots_count, teams_count: teams_count, can_upload_shot: can_upload_shot, type: type, pro: pro, buckets_url: buckets_url, followers_url: followers_url, following_url: following_url, likes_url: likes_url, projects_url: projects_url, shots_url: shots_url, teams_url: teams_url, created_at: created_at, updated_at: updated_at)
     } else {
