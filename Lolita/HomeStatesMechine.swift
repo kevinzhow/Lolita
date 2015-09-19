@@ -39,12 +39,12 @@ extension ViewController {
             
             shotsCollectionView?.delegate = self
             
-            shotsCollectionView?.contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 30, right: 0)
+            shotsCollectionView?.contentInset = UIEdgeInsets(top: ShotCollectionViewTopInset, left: 0, bottom: 30, right: 0)
             
             view.insertSubview(shotsCollectionView!, belowSubview: topBarView)
         }
         
-        shotsByListType(DribbbleListType.Default) { (shots) -> Void in
+        shotsByListType(DribbbleListType.Default, page: 1) { (shots) -> Void in
             if let shots = shots {
                 self.shots = shots
                 

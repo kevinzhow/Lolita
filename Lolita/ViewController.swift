@@ -11,6 +11,8 @@ import SafariServices
 import GCDWebServer
 import SwiftyUserDefaults
 
+let ShotCollectionViewTopInset: CGFloat = 50
+
 class ViewController: UIViewController {
     
     @IBOutlet weak var topBarViewHeight: NSLayoutConstraint!
@@ -41,7 +43,7 @@ class ViewController: UIViewController {
     
     var scrollUp = false
     
-    var lastOffsetY: CGFloat = 0
+    var currentPage = 1
     
     enum HomeState: Int {
         case Welcome = 0

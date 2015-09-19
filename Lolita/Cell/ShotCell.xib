@@ -7,23 +7,26 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ShotCell" customModule="Lolita" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="399" height="248"/>
+            <rect key="frame" x="0.0" y="0.0" width="399" height="455"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="399" height="248"/>
+                <rect key="frame" x="0.0" y="0.0" width="399" height="455"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oqg-h0-Usg">
-                        <rect key="frame" x="15" y="8" width="369" height="232"/>
+                        <rect key="frame" x="15" y="8" width="369" height="439"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HD5-OZ-Duf" customClass="OLImageView">
-                                <rect key="frame" x="0.0" y="0.0" width="369" height="177"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HD5-OZ-Duf" customClass="OLImageView">
+                                <rect key="frame" x="0.0" y="0.0" width="369" height="268"/>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="268" id="kz2-JJ-b0m"/>
+                                </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Jb-S1-Du1">
-                                <rect key="frame" x="0.0" y="177" width="369" height="55"/>
+                                <rect key="frame" x="0.0" y="268" width="369" height="55"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3DE-aW-RcO">
-                                        <rect key="frame" x="15" y="16.5" width="19" height="22"/>
+                                        <rect key="frame" x="15" y="16" width="19" height="22"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="KIe-cW-90n"/>
@@ -32,14 +35,14 @@
                                         <state key="normal" image="like"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FLZ-yn-7q9">
-                                        <rect key="frame" x="54" y="10.5" width="247" height="18"/>
+                                        <rect key="frame" x="54" y="11" width="247" height="18"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="90S-4d-7h3">
-                                        <rect key="frame" x="274" y="30.5" width="27" height="15.5"/>
+                                        <rect key="frame" x="274" y="31" width="27" height="15.5"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="11"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -63,6 +66,7 @@
                                     <constraint firstItem="FLZ-yn-7q9" firstAttribute="top" secondItem="MAv-KW-Vyj" secondAttribute="top" constant="2" id="Auq-nk-Wkc"/>
                                     <constraint firstItem="90S-4d-7h3" firstAttribute="trailing" secondItem="FLZ-yn-7q9" secondAttribute="trailing" id="D2d-uC-YFy"/>
                                     <constraint firstItem="MAv-KW-Vyj" firstAttribute="leading" secondItem="FLZ-yn-7q9" secondAttribute="trailing" constant="15" id="HnZ-7E-VtB"/>
+                                    <constraint firstAttribute="height" constant="55" id="TDz-eM-fGm"/>
                                     <constraint firstAttribute="trailing" secondItem="MAv-KW-Vyj" secondAttribute="trailing" constant="15" id="aCY-om-QG2"/>
                                     <constraint firstItem="FLZ-yn-7q9" firstAttribute="leading" secondItem="3DE-aW-RcO" secondAttribute="trailing" constant="20" id="kDf-WA-svi"/>
                                     <constraint firstItem="3DE-aW-RcO" firstAttribute="leading" secondItem="2Jb-S1-Du1" secondAttribute="leading" constant="15" id="wFs-XH-Hrz"/>
@@ -81,6 +85,12 @@
                             <constraint firstAttribute="bottom" secondItem="2Jb-S1-Du1" secondAttribute="bottom" id="qsa-tb-suS"/>
                             <constraint firstItem="HD5-OZ-Duf" firstAttribute="top" secondItem="Oqg-h0-Usg" secondAttribute="top" id="r5D-wk-iVk"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="OeH-Ur-6Ur"/>
+                                <exclude reference="qsa-tb-suS"/>
+                            </mask>
+                        </variation>
                     </view>
                 </subviews>
                 <animations/>
@@ -93,16 +103,20 @@
                 <constraint firstAttribute="trailing" secondItem="Oqg-h0-Usg" secondAttribute="trailing" constant="15" id="VeS-Yg-NHz"/>
                 <constraint firstItem="Oqg-h0-Usg" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="qPr-s2-fX7"/>
             </constraints>
-            <size key="customSize" width="399" height="248"/>
+            <size key="customSize" width="399" height="455"/>
             <connections>
                 <outlet property="avatarImageView" destination="MAv-KW-Vyj" id="puu-kb-kBb"/>
                 <outlet property="likeButton" destination="3DE-aW-RcO" id="0lb-Io-eFl"/>
+                <outlet property="shotContainerBottom" destination="UYi-Rp-uUP" id="bIw-a8-Nxj"/>
+                <outlet property="shotContainerLeading" destination="N3N-es-3t4" id="6Pc-k5-GKs"/>
+                <outlet property="shotContainerTop" destination="qPr-s2-fX7" id="nil-gC-1Bo"/>
+                <outlet property="shotContainerTrailing" destination="VeS-Yg-NHz" id="5GS-bR-08i"/>
                 <outlet property="shotContainerView" destination="Oqg-h0-Usg" id="HGw-js-xN0"/>
                 <outlet property="shotDescriptionLabel" destination="FLZ-yn-7q9" id="1yE-uW-lY9"/>
                 <outlet property="shotImageView" destination="HD5-OZ-Duf" id="Etn-IU-snK"/>
                 <outlet property="shotTimeLabel" destination="90S-4d-7h3" id="hwX-hr-jm8"/>
             </connections>
-            <point key="canvasLocation" x="320.5" y="307"/>
+            <point key="canvasLocation" x="320.5" y="410.5"/>
         </collectionViewCell>
     </objects>
     <resources>

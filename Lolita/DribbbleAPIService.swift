@@ -28,9 +28,9 @@ enum DribbbleTimeframe: String {
 }
 
 
-func shotsByListType(type: DribbbleListType, complete: (shots: [DribbbleShot]?) -> Void) {
+func shotsByListType(type: DribbbleListType, page: Int, complete: (shots: [DribbbleShot]?) -> Void) {
     
-    let request = authRequestPath(DribbbleAPI.Shots.rawValue + "?per_page=50", useMethod: .GET)
+    let request = authRequestPath(DribbbleAPI.Shots.rawValue + "?page=\(page)&per_page=50", useMethod: .GET)
     
     Alamofire.request(request).responseJSON { (request, response, JSON) in
         

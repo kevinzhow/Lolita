@@ -148,4 +148,24 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         }
     }
     
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let cell = collectionView.cellForItemAtIndexPath(indexPath) as! ShotCell
+        cell.removeFromSuperview()
+        
+        
+        let newFrame = CGRect(x: cell.frame.origin.x, y: cell.frame.origin.y + ShotCollectionViewTopInset, width: cell.frame.width, height: cell.frame.height)
+        
+        cell.frame = newFrame
+        view.addSubview(cell)
+        
+        UIView.animateKeyframesWithDuration(0.5, delay: 0, options: UIViewKeyframeAnimationOptions.AllowUserInteraction, animations: {
+            
+            cell.frame = self.view.frame
+            cell.state = .Detail
+            cell.layoutIfNeeded()
+            
+            
+        }, completion: nil)
+    }
+    
 }
