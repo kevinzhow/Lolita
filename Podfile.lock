@@ -1,0 +1,21 @@
+PODS:
+  - Alamofire (2.0.1)
+  - GCDWebServer (3.2.7):
+    - GCDWebServer/Core (= 3.2.7)
+  - GCDWebServer/Core (3.2.7)
+  - SVProgressHUD (1.1.3)
+  - SwiftyUserDefaults (2.0.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - GCDWebServer
+  - SVProgressHUD
+  - SwiftyUserDefaults
+
+SPEC CHECKSUMS:
+  Alamofire: 1d8e208d616fbbfd2391b15eae766d07c96cdc49
+  GCDWebServer: 76a9540371d5f12f850b32ec7f555dd2d266e543
+  SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
+  SwiftyUserDefaults: 1266e9734c68bcfbac8294ee84173dc8ba6db312
+
+COCOAPODS: 0.38.2
