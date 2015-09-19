@@ -70,6 +70,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         
         print("Scroll \(scrollView.contentOffset.y) \(scrollView.tag)")
         print("Header \(topBarViewHeight.constant)")
+        
         let velocity = scrollView.panGestureRecognizer.velocityInView(self.view)
         
         if topBarViewHeight.constant > 35 {
@@ -85,12 +86,15 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
             
             if velocity.y > 0 || !scrollUp{
                 scrollUp = false
-                topBarViewHeight.constant += 1
+                
+                if scrollView.contentOffset.y < 300 {
+                    topBarViewHeight.constant += 1
+                }
+                
             }
         }
         
-        topBarView.layoutIfNeeded()
-        view.setNeedsLayout()
+        view.layoutIfNeeded()
         
         if let blurView = blurView {
             blurView.frame = blurViewContainer.bounds
