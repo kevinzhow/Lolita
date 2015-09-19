@@ -11,16 +11,32 @@ import Alamofire
 import SVProgressHUD
 import SwiftyUserDefaults
 
+typealias JSONDictionary = [String: AnyObject]
+
 let DribbbleOauthURL = "https://dribbble.com/oauth/authorize"
 let DribbbleOAuthToken = "https://dribbble.com/oauth/token"
 let DribbbleClientID = "77e570ab17808f0699b6e01b8fdd565e17cd8147599a6f317b478aff4b6560c7"
 let DribbbleClientSecret = "2975d86f61ac0cf7e10f929203cc44567182a9322eb2a07dee7a2d56f6ae093f"
+let dribbbleBaseURL = "https://api.dribbble.com/v1"
 let callbackURL = "http://127.0.0.1:8180/dribbble"
 
 extension DefaultsKeys {
     static let dribbbleToken = DefaultsKey<String?>("dribbbleToken")
 }
 
+func authRequestPath(path: String, useMethod method: Alamofire.Method) -> NSMutableURLRequest {
+    
+    let URL = NSURL(string: dribbbleBaseURL + path)!
+    
+    let mutableURLRequest = NSMutableURLRequest(URL: URL)
+    mutableURLRequest.HTTPMethod = method.rawValue
+    if let token = Defaults[.dribbbleToken] {
+       mutableURLRequest.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+    }
+    
+    
+    return mutableURLRequest
+}
 
 func dribbbleTokenWithCode(code: String , complete: (finish: Bool) -> Void) {
     
@@ -28,7 +44,6 @@ func dribbbleTokenWithCode(code: String , complete: (finish: Bool) -> Void) {
 
         SVProgressHUD.showWithStatus("Connecting")
     })
-
     
     let parameters = [
         "client_id": DribbbleClientID,

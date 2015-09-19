@@ -3,6 +3,7 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'Lolita' do
+ pod 'Kingfisher'
  pod 'Alamofire'
  pod 'GCDWebServer'
  pod 'SVProgressHUD'

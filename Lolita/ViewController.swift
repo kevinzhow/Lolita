@@ -9,8 +9,42 @@
 import UIKit
 import SafariServices
 import GCDWebServer
+import SwiftyUserDefaults
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var logoImageCenterY: NSLayoutConstraint!
+    
+    @IBOutlet weak var logoImage: UIImageView!
+    
+    @IBOutlet weak var labelImage: UILabel!
+    
+    @IBOutlet weak var signInButton: UIButton!
+    
+    @IBOutlet weak var footerMessageLabel: UILabel!
+    
+    var shotsCollectionView: UICollectionView?
+    
+    @IBOutlet weak var topBarView: UIView!
+    
+    enum HomeState: Int {
+        case Welcome = 0
+        case Timeline
+        case Likes
+    }
+    
+    var state: HomeState? {
+        didSet {
+            switch self.state! {
+            case .Welcome:
+                break
+            case .Timeline:
+                becomeTimeline()
+            case .Likes:
+                break
+            }
+        }
+    }
     
     @IBAction func signInWithDribbble(sender: AnyObject) {
         
@@ -22,7 +56,7 @@ class ViewController: UIViewController {
         
         webServer.addDefaultHandlerForMethod("GET", requestClass: GCDWebServerRequest.self, processBlock: {request in
             
-            if let dribbblePath = request.path, query = request.query, code = query["code"] as? String {
+            if let query = request.query, code = query["code"] as? String {
                 print(code)
                 
                 dribbbleTokenWithCode(code, complete: { (finish) -> Void in
@@ -45,6 +79,13 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let token = Defaults[.dribbbleToken] {
+            print(token)
+            self.state = .Timeline
+        } else {
+            self.state = .Welcome
+        }
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -52,10 +93,14 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
 
-
-}
-
-extension ViewController {
 
 }

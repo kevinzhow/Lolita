@@ -59,11 +59,44 @@
                                 <color key="textColor" white="0.2603178879310345" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="utc-Ac-Wg4">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="58"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yoA-hp-116">
+                                        <rect key="frame" x="542" y="11.5" width="50" height="35"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="9hS-t0-e8l"/>
+                                            <constraint firstAttribute="height" constant="35" id="Fgn-6v-v5h"/>
+                                        </constraints>
+                                        <state key="normal" image="folder"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fSY-JA-sAT">
+                                        <rect key="frame" x="8" y="11.5" width="50" height="35"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="OzS-mq-Dvs"/>
+                                            <constraint firstAttribute="height" constant="35" id="c0D-e3-mbI"/>
+                                        </constraints>
+                                        <state key="normal" image="menu"/>
+                                    </button>
+                                </subviews>
+                                <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="fSY-JA-sAT" firstAttribute="leading" secondItem="utc-Ac-Wg4" secondAttribute="leading" constant="8" id="8Xq-9X-nga"/>
+                                    <constraint firstAttribute="height" constant="58" id="IQj-Uf-gru"/>
+                                    <constraint firstAttribute="trailing" secondItem="yoA-hp-116" secondAttribute="trailing" constant="8" id="cVU-rL-l7A"/>
+                                    <constraint firstItem="yoA-hp-116" firstAttribute="centerY" secondItem="utc-Ac-Wg4" secondAttribute="centerY" id="jeg-0x-6M8"/>
+                                    <constraint firstItem="fSY-JA-sAT" firstAttribute="centerY" secondItem="utc-Ac-Wg4" secondAttribute="centerY" id="oi6-VP-21d"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="1Q2-mn-N3V" firstAttribute="centerX" secondItem="L69-C1-XBx" secondAttribute="centerX" id="2uN-Yj-ord"/>
+                            <constraint firstItem="utc-Ac-Wg4" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="4qx-ao-LP2"/>
                             <constraint firstItem="1Q2-mn-N3V" firstAttribute="top" secondItem="L69-C1-XBx" secondAttribute="bottom" constant="5" id="6Ac-YK-wyj"/>
                             <constraint firstItem="L69-C1-XBx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6ry-14-cMR"/>
                             <constraint firstItem="L69-C1-XBx" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-50" id="AC0-TQ-Zea"/>
@@ -71,10 +104,12 @@
                             <constraint firstAttribute="trailing" secondItem="d0O-ex-4cs" secondAttribute="trailing" id="Iaz-wX-XZp"/>
                             <constraint firstItem="1Q2-mn-N3V" firstAttribute="centerY" secondItem="L69-C1-XBx" secondAttribute="centerY" id="J8Z-hI-GT9"/>
                             <constraint firstItem="d0O-ex-4cs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Mno-EQ-5Eu"/>
+                            <constraint firstAttribute="trailing" secondItem="utc-Ac-Wg4" secondAttribute="trailing" id="RL8-vY-ZCM"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="d0O-ex-4cs" secondAttribute="bottom" id="WAt-b3-D9p"/>
                             <constraint firstItem="1Q2-mn-N3V" firstAttribute="top" secondItem="L69-C1-XBx" secondAttribute="bottom" constant="3.5" id="bhW-ak-gBs"/>
                             <constraint firstItem="1gg-vS-SxJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dZz-yM-A9g"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="1gg-vS-SxJ" secondAttribute="bottom" constant="8" id="de2-bS-0yT"/>
+                            <constraint firstItem="utc-Ac-Wg4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="rUs-fa-Pt3"/>
                             <constraint firstItem="B7J-WU-tRX" firstAttribute="centerX" secondItem="L69-C1-XBx" secondAttribute="centerX" id="spI-hf-T2n"/>
                             <constraint firstItem="B7J-WU-tRX" firstAttribute="top" secondItem="L69-C1-XBx" secondAttribute="bottom" constant="110" id="spQ-yB-WFU"/>
                         </constraints>
@@ -86,6 +121,14 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="W0r-ZL-Mmj"/>
+                    <connections>
+                        <outlet property="footerMessageLabel" destination="1gg-vS-SxJ" id="AcP-aE-mQY"/>
+                        <outlet property="labelImage" destination="1Q2-mn-N3V" id="HYQ-yg-Q2p"/>
+                        <outlet property="logoImage" destination="L69-C1-XBx" id="Prx-mF-fuf"/>
+                        <outlet property="logoImageCenterY" destination="AC0-TQ-Zea" id="eB4-v3-cF3"/>
+                        <outlet property="signInButton" destination="B7J-WU-tRX" id="Ybw-S9-j08"/>
+                        <outlet property="topBarView" destination="utc-Ac-Wg4" id="KmE-En-sCF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -113,5 +156,7 @@
         <image name="AppLogo" width="24" height="10"/>
         <image name="BG" width="750" height="1334"/>
         <image name="Login Button" width="195" height="39"/>
+        <image name="folder" width="16" height="14"/>
+        <image name="menu" width="16" height="16"/>
     </resources>
 </document>
