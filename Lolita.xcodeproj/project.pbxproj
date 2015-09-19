@@ -12,6 +12,8 @@
 		6A0A0F8D1BADC1AA001EBF98 /* ShotCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A0A0F8B1BADC1AA001EBF98 /* ShotCell.xib */; settings = {ASSET_TAGS = (); }; };
 		6A0A0F911BADC958001EBF98 /* DribbbleAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0A0F901BADC958001EBF98 /* DribbbleAPIService.swift */; settings = {ASSET_TAGS = (); }; };
 		6A0A0F931BADD19A001EBF98 /* DribbbleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0A0F921BADD19A001EBF98 /* DribbbleModel.swift */; settings = {ASSET_TAGS = (); }; };
+		6A0A0F951BADD365001EBF98 /* ShotsDelegateAndDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0A0F941BADD365001EBF98 /* ShotsDelegateAndDataSource.swift */; settings = {ASSET_TAGS = (); }; };
+		6A0A0F971BADD52A001EBF98 /* DribbbleFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0A0F961BADD52A001EBF98 /* DribbbleFlowLayout.swift */; settings = {ASSET_TAGS = (); }; };
 		6AAC00041BAD98FD00190C0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAC00031BAD98FD00190C0D /* AppDelegate.swift */; };
 		6AAC00061BAD98FD00190C0D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAC00051BAD98FD00190C0D /* ViewController.swift */; };
 		6AAC00091BAD98FD00190C0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AAC00071BAD98FD00190C0D /* Main.storyboard */; };
@@ -27,6 +29,8 @@
 		6A0A0F8B1BADC1AA001EBF98 /* ShotCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ShotCell.xib; path = Cell/ShotCell.xib; sourceTree = "<group>"; };
 		6A0A0F901BADC958001EBF98 /* DribbbleAPIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DribbbleAPIService.swift; sourceTree = "<group>"; };
 		6A0A0F921BADD19A001EBF98 /* DribbbleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DribbbleModel.swift; sourceTree = "<group>"; };
+		6A0A0F941BADD365001EBF98 /* ShotsDelegateAndDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShotsDelegateAndDataSource.swift; sourceTree = "<group>"; };
+		6A0A0F961BADD52A001EBF98 /* DribbbleFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DribbbleFlowLayout.swift; sourceTree = "<group>"; };
 		6AAC00001BAD98FD00190C0D /* Lolita.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lolita.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AAC00031BAD98FD00190C0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6AAC00051BAD98FD00190C0D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +63,7 @@
 			children = (
 				6AAC00051BAD98FD00190C0D /* ViewController.swift */,
 				6AAC001B1BADBBDC00190C0D /* HomeStatesMechine.swift */,
+				6A0A0F941BADD365001EBF98 /* ShotsDelegateAndDataSource.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -92,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				6AAC00031BAD98FD00190C0D /* AppDelegate.swift */,
+				6A0A0F961BADD52A001EBF98 /* DribbbleFlowLayout.swift */,
 				6A0A0F891BADC187001EBF98 /* Home */,
 				6AAC00071BAD98FD00190C0D /* Main.storyboard */,
 				6AAC000D1BAD98FD00190C0D /* Assets.xcassets */,
@@ -266,7 +272,9 @@
 				6A0A0F911BADC958001EBF98 /* DribbbleAPIService.swift in Sources */,
 				6AAC00191BADA5E500190C0D /* LolitaService.swift in Sources */,
 				6A0A0F8C1BADC1AA001EBF98 /* ShotCell.swift in Sources */,
+				6A0A0F951BADD365001EBF98 /* ShotsDelegateAndDataSource.swift in Sources */,
 				6AAC001C1BADBBDC00190C0D /* HomeStatesMechine.swift in Sources */,
+				6A0A0F971BADD52A001EBF98 /* DribbbleFlowLayout.swift in Sources */,
 				6AAC00061BAD98FD00190C0D /* ViewController.swift in Sources */,
 				6A0A0F931BADD19A001EBF98 /* DribbbleModel.swift in Sources */,
 				6AAC000C1BAD98FD00190C0D /* Lolita.xcdatamodeld in Sources */,

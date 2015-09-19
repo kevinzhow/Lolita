@@ -13,7 +13,7 @@ let dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
 struct DribbbleShot {
     let id: Int
     let title: String
-    let description: String
+    let description: String?
     let width: Int
     let height: Int
     let images: JSONDictionary
@@ -89,7 +89,6 @@ func shotFromInfo(info: JSONDictionary) -> DribbbleShot? {
     
     if let id = info["id"] as? Int,
         title = info["title"] as? String,
-        description = info["description"] as? String,
         width = info["width"] as? Int,
         height = info["height"] as? Int,
         images = info["images"] as? JSONDictionary,
@@ -113,8 +112,13 @@ func shotFromInfo(info: JSONDictionary) -> DribbbleShot? {
         userInfo = info["user"] as? JSONDictionary,
         user = userFromInfo(userInfo)
     {
+        let description = info["description"] as? String
         
         return DribbbleShot(id: id, title: title, description: description, width: width, height: height, images: images, views_count: views_count, likes_count: likes_count, comments_count: comments_count, attachments_count: attachments_count, rebounds_count: rebounds_count, buckets_count: buckets_count, created_at: created_at, updated_at: updated_at, html_url: html_url, attachments_url: attachments_url, buckets_url: buckets_url, comments_url: comments_url, likes_url: likes_url, projects_url: projects_url, rebounds_url: rebounds_url, animated: animated, tags: tags, user: user)
+        
+    } else {
+        print("Shot Not Fit")
+        print(info)
     }
     
     return nil
@@ -155,6 +159,9 @@ func userFromInfo(info: JSONDictionary) -> DribbbleUser? {
     {
     
         return DribbbleUser(id: id, name: name, username: username, html_url: html_url, avatar_url: avatar_url, bio: bio, location: location, links: links, buckets_count: buckets_count, comments_received_count: comments_received_count, followers_count: followers_count, followings_count: followings_count, likes_count: likes_count, likes_received_count: likes_received_count, projects_count: projects_count, rebounds_received_count: rebounds_received_count, shots_count: shots_count, teams_count: teams_count, can_upload_shot: can_upload_shot, type: type, pro: pro, buckets_url: buckets_url, followers_url: followers_url, following_url: following_url, likes_url: likes_url, projects_url: projects_url, shots_url: shots_url, teams_url: teams_url, created_at: created_at, updated_at: updated_at)
+    } else {
+        print("User Not Fit")
+        print(info)
     }
     
     return nil

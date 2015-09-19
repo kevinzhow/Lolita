@@ -62,17 +62,21 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="utc-Ac-Wg4">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="58"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yoA-hp-116">
-                                        <rect key="frame" x="542" y="11.5" width="50" height="35"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KkJ-Bt-P55">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="58"/>
+                                        <animations/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppLogo" translatesAutoresizingMaskIntoConstraints="NO" id="qn5-MO-I2C">
+                                        <rect key="frame" x="287.5" y="23.5" width="25" height="11"/>
                                         <animations/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="9hS-t0-e8l"/>
-                                            <constraint firstAttribute="height" constant="35" id="Fgn-6v-v5h"/>
+                                            <constraint firstAttribute="height" constant="11" id="0YA-Uy-3et"/>
+                                            <constraint firstAttribute="width" constant="25" id="ugW-3n-zgX"/>
                                         </constraints>
-                                        <state key="normal" image="folder"/>
-                                    </button>
+                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fSY-JA-sAT">
-                                        <rect key="frame" x="8" y="11.5" width="50" height="35"/>
+                                        <rect key="frame" x="8" y="11" width="50" height="35"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="OzS-mq-Dvs"/>
@@ -80,16 +84,39 @@
                                         </constraints>
                                         <state key="normal" image="menu"/>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yoA-hp-116">
+                                        <rect key="frame" x="542" y="11" width="50" height="35"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="9hS-t0-e8l"/>
+                                            <constraint firstAttribute="height" constant="35" id="Fgn-6v-v5h"/>
+                                        </constraints>
+                                        <state key="normal" image="folder"/>
+                                    </button>
                                 </subviews>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="yoA-hp-116" firstAttribute="leading" secondItem="KkJ-Bt-P55" secondAttribute="trailing" id="7lB-1Q-Szn"/>
                                     <constraint firstItem="fSY-JA-sAT" firstAttribute="leading" secondItem="utc-Ac-Wg4" secondAttribute="leading" constant="8" id="8Xq-9X-nga"/>
+                                    <constraint firstItem="KkJ-Bt-P55" firstAttribute="leading" secondItem="utc-Ac-Wg4" secondAttribute="leading" id="A5U-7V-wdz"/>
+                                    <constraint firstItem="KkJ-Bt-P55" firstAttribute="top" secondItem="utc-Ac-Wg4" secondAttribute="top" id="EZp-0G-NMp"/>
                                     <constraint firstAttribute="height" constant="58" id="IQj-Uf-gru"/>
+                                    <constraint firstAttribute="trailing" secondItem="KkJ-Bt-P55" secondAttribute="trailing" id="K9Z-lk-Pbm"/>
+                                    <constraint firstItem="qn5-MO-I2C" firstAttribute="centerX" secondItem="utc-Ac-Wg4" secondAttribute="centerX" id="KQu-td-jQO"/>
+                                    <constraint firstItem="yoA-hp-116" firstAttribute="leading" secondItem="KkJ-Bt-P55" secondAttribute="trailing" id="PXv-2C-X2J"/>
+                                    <constraint firstItem="qn5-MO-I2C" firstAttribute="centerY" secondItem="utc-Ac-Wg4" secondAttribute="centerY" id="U3r-Mo-je6"/>
                                     <constraint firstAttribute="trailing" secondItem="yoA-hp-116" secondAttribute="trailing" constant="8" id="cVU-rL-l7A"/>
                                     <constraint firstItem="yoA-hp-116" firstAttribute="centerY" secondItem="utc-Ac-Wg4" secondAttribute="centerY" id="jeg-0x-6M8"/>
                                     <constraint firstItem="fSY-JA-sAT" firstAttribute="centerY" secondItem="utc-Ac-Wg4" secondAttribute="centerY" id="oi6-VP-21d"/>
+                                    <constraint firstAttribute="bottom" secondItem="KkJ-Bt-P55" secondAttribute="bottom" id="yDP-jm-uoH"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="7lB-1Q-Szn"/>
+                                        <exclude reference="PXv-2C-X2J"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <animations/>
@@ -122,17 +149,19 @@
                     </view>
                     <navigationItem key="navigationItem" id="W0r-ZL-Mmj"/>
                     <connections>
+                        <outlet property="blurViewContainer" destination="KkJ-Bt-P55" id="IuZ-0p-MGs"/>
                         <outlet property="footerMessageLabel" destination="1gg-vS-SxJ" id="AcP-aE-mQY"/>
                         <outlet property="labelImage" destination="1Q2-mn-N3V" id="HYQ-yg-Q2p"/>
                         <outlet property="logoImage" destination="L69-C1-XBx" id="Prx-mF-fuf"/>
                         <outlet property="logoImageCenterY" destination="AC0-TQ-Zea" id="eB4-v3-cF3"/>
                         <outlet property="signInButton" destination="B7J-WU-tRX" id="Ybw-S9-j08"/>
                         <outlet property="topBarView" destination="utc-Ac-Wg4" id="KmE-En-sCF"/>
+                        <outlet property="topBarViewHeight" destination="IQj-Uf-gru" id="m8i-zl-81o"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="584" y="746"/>
+            <point key="canvasLocation" x="631" y="746"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SpP-la-K8y">

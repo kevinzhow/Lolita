@@ -21,6 +21,8 @@ extension ViewController {
         
         footerMessageLabel.hidden = true
         
+        logoImage.hidden = true
+        
         view.layoutIfNeeded()
         
         if let shotsCollectionView = shotsCollectionView {
@@ -33,11 +35,26 @@ extension ViewController {
             
             shotsCollectionView?.registerNib(UINib(nibName: "ShotCell", bundle: nil), forCellWithReuseIdentifier: "ShotCell")
             
+            shotsCollectionView?.dataSource = self
+            
+            shotsCollectionView?.delegate = self
+            
+            shotsCollectionView?.contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
+            
             view.insertSubview(shotsCollectionView!, belowSubview: topBarView)
         }
         
         shotsByListType(DribbbleListType.Default) { (shots) -> Void in
-            print(shots)
+            if let shots = shots {
+                self.shots = shots
+                
+                
+                dispatch_async(dispatch_get_main_queue(),{
+                    
+                    self.shotsCollectionView!.reloadData()
+                    
+                })
+            }
         }
     }
 }

@@ -28,9 +28,9 @@ enum DribbbleTimeframe: String {
 }
 
 
-func shotsByListType(type: DribbbleListType, complete: (shots: [DribbbleShot]) -> Void) {
+func shotsByListType(type: DribbbleListType, complete: (shots: [DribbbleShot]?) -> Void) {
     
-    let request = authRequestPath(DribbbleAPI.Shots.rawValue, useMethod: .GET)
+    let request = authRequestPath(DribbbleAPI.Shots.rawValue + "?per_page=50", useMethod: .GET)
     
     Alamofire.request(request).responseJSON { (request, response, JSON) in
         
@@ -40,7 +40,12 @@ func shotsByListType(type: DribbbleListType, complete: (shots: [DribbbleShot]) -
                 print("Profile Got")
                 let shots = JSON.map({ shotFromInfo($0) }).filter({ $0 != nil }).map({ $0! })
                 complete(shots: shots)
+            } else {
+                complete(shots: nil)
             }
+            
+        } else {
+            complete(shots: nil)
         }
 
 //        

@@ -10,6 +10,8 @@ import UIKit
 
 class ShotCell: UICollectionViewCell {
 
+    @IBOutlet weak var shotContainerView: UIView!
+    
     @IBOutlet weak var shotImageView: UIImageView!
     
     @IBOutlet weak var likeButton: UIButton!
@@ -22,6 +24,9 @@ class ShotCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        shotContainerView.layer.cornerRadius = 8
+        shotContainerView.layer.masksToBounds = true
         // Initialization code
     }
 

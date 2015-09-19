@@ -13,6 +13,10 @@ import SwiftyUserDefaults
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var topBarViewHeight: NSLayoutConstraint!
+    
+    @IBOutlet weak var blurViewContainer: UIView!
+    
     @IBOutlet weak var logoImageCenterY: NSLayoutConstraint!
     
     @IBOutlet weak var logoImage: UIImageView!
@@ -26,6 +30,18 @@ class ViewController: UIViewController {
     var shotsCollectionView: UICollectionView?
     
     @IBOutlet weak var topBarView: UIView!
+    
+    var shots = [DribbbleShot]()
+    
+    var blurEffectAdded = false
+    
+    let darkBlur = UIBlurEffect(style: UIBlurEffectStyle.Dark)
+
+    var blurView : UIVisualEffectView?
+    
+    var scrollUp = false
+    
+    var lastOffsetY: CGFloat = 0
     
     enum HomeState: Int {
         case Welcome = 0
@@ -86,7 +102,13 @@ class ViewController: UIViewController {
         } else {
             self.state = .Welcome
         }
+        
+        blurView = UIVisualEffectView(effect: darkBlur)
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
     }
 
     override func didReceiveMemoryWarning() {
@@ -101,6 +123,5 @@ class ViewController: UIViewController {
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
-
 
 }
