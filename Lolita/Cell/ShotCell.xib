@@ -15,7 +15,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oqg-h0-Usg">
                         <rect key="frame" x="15" y="8" width="369" height="232"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HD5-OZ-Duf">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HD5-OZ-Duf" customClass="OLImageView">
                                 <rect key="frame" x="0.0" y="0.0" width="369" height="177"/>
                                 <animations/>
                             </imageView>
@@ -99,7 +99,7 @@
                 <outlet property="likeButton" destination="3DE-aW-RcO" id="0lb-Io-eFl"/>
                 <outlet property="shotContainerView" destination="Oqg-h0-Usg" id="HGw-js-xN0"/>
                 <outlet property="shotDescriptionLabel" destination="FLZ-yn-7q9" id="1yE-uW-lY9"/>
-                <outlet property="shotImageView" destination="HD5-OZ-Duf" id="zfP-IU-Mbp"/>
+                <outlet property="shotImageView" destination="HD5-OZ-Duf" id="Etn-IU-snK"/>
                 <outlet property="shotTimeLabel" destination="90S-4d-7h3" id="hwX-hr-jm8"/>
             </connections>
             <point key="canvasLocation" x="320.5" y="307"/>

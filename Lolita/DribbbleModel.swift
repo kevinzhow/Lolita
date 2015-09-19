@@ -118,7 +118,7 @@ func shotFromInfo(info: JSONDictionary) -> DribbbleShot? {
         
     } else {
         print("Shot Not Fit")
-        print(info)
+//        print(info)
     }
     
     return nil
@@ -161,7 +161,7 @@ func userFromInfo(info: JSONDictionary) -> DribbbleUser? {
         return DribbbleUser(id: id, name: name, username: username, html_url: html_url, avatar_url: avatar_url, bio: bio, location: location, links: links, buckets_count: buckets_count, comments_received_count: comments_received_count, followers_count: followers_count, followings_count: followings_count, likes_count: likes_count, likes_received_count: likes_received_count, projects_count: projects_count, rebounds_received_count: rebounds_received_count, shots_count: shots_count, teams_count: teams_count, can_upload_shot: can_upload_shot, type: type, pro: pro, buckets_url: buckets_url, followers_url: followers_url, following_url: following_url, likes_url: likes_url, projects_url: projects_url, shots_url: shots_url, teams_url: teams_url, created_at: created_at, updated_at: updated_at)
     } else {
         print("User Not Fit")
-        print(info)
+//        print(info)
     }
     
     return nil

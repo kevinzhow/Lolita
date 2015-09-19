@@ -39,7 +39,7 @@ extension ViewController {
             
             shotsCollectionView?.delegate = self
             
-            shotsCollectionView?.contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
+            shotsCollectionView?.contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 30, right: 0)
             
             view.insertSubview(shotsCollectionView!, belowSubview: topBarView)
         }

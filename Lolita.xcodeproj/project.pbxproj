@@ -31,6 +31,7 @@
 		6A0A0F921BADD19A001EBF98 /* DribbbleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DribbbleModel.swift; sourceTree = "<group>"; };
 		6A0A0F941BADD365001EBF98 /* ShotsDelegateAndDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShotsDelegateAndDataSource.swift; sourceTree = "<group>"; };
 		6A0A0F961BADD52A001EBF98 /* DribbbleFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DribbbleFlowLayout.swift; sourceTree = "<group>"; };
+		6A0A0FA31BADF1E6001EBF98 /* Lolita-Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Lolita-Bridge.h"; sourceTree = SOURCE_ROOT; };
 		6AAC00001BAD98FD00190C0D /* Lolita.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lolita.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AAC00031BAD98FD00190C0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6AAC00051BAD98FD00190C0D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +97,7 @@
 		6AAC00021BAD98FD00190C0D /* Lolita */ = {
 			isa = PBXGroup;
 			children = (
+				6A0A0FA31BADF1E6001EBF98 /* Lolita-Bridge.h */,
 				6AAC00031BAD98FD00190C0D /* AppDelegate.swift */,
 				6A0A0F961BADD52A001EBF98 /* DribbbleFlowLayout.swift */,
 				6A0A0F891BADC187001EBF98 /* Home */,
@@ -395,6 +397,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kevinzhow.Lolita;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Lolita-Bridge.h";
 			};
 			name = Debug;
 		};
@@ -408,6 +411,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kevinzhow.Lolita;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Lolita-Bridge.h";
 			};
 			name = Release;
 		};
