@@ -37,13 +37,16 @@ class DribbbleFlowLayout: UICollectionViewFlowLayout {
         self.insertIndexPathSet = insertIndexPathSet
     }
     
+    
     override func initialLayoutAttributesForAppearingItemAtIndexPath(itemIndexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
         
-        if let attributes = layoutAttributesForItemAtIndexPath(itemIndexPath) {
+        if let attributes = super.initialLayoutAttributesForAppearingItemAtIndexPath(itemIndexPath) {
             
             if insertIndexPathSet.contains(itemIndexPath) {
+                
                 attributes.frame.origin.y += 30 + 30 * CGFloat(itemIndexPath.row)
-                attributes.alpha = 0
+                attributes.alpha = 0.0
+                
                 insertIndexPathSet.remove(itemIndexPath)
             }
             
