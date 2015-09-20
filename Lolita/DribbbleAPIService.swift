@@ -13,10 +13,7 @@ import SwiftyUserDefaults
 
 enum DribbbleAPI: String {
     case Shots = "/shots"
-}
-
-enum DribbbleListType: String {
-    case Default = ""
+    case ShotsByFollowed = "/user/following/shots"
 }
 
 enum DribbbleTimeframe: String {
@@ -27,9 +24,10 @@ enum DribbbleTimeframe: String {
 }
 
 
-func shotsByListType(type: DribbbleListType, page: Int, complete: (shots: [DribbbleShot]?) -> Void) {
+
+func shotsByListType(type: LolitaSelectChannel, page: Int, complete: (shots: [DribbbleShot]?) -> Void) {
     
-    let request = authRequestPath(DribbbleAPI.Shots.rawValue + "?page=\(page)&per_page=50", useMethod: .GET)
+    let request = authRequestPath(DribbbleAPI.Shots.rawValue + "?page=\(page)&per_page=50&list=\(type.HumanRead)", useMethod: .GET)
     
     Alamofire.request(request).responseJSON { (request, response, JSON) in
         
@@ -51,6 +49,34 @@ func shotsByListType(type: DribbbleListType, page: Int, complete: (shots: [Dribb
 //        handleError(response, JSON: JSON.value, complete: { (statusCode, errorMesage) in
 //            complete(nil)
 //        })
+        
+    }
+}
+
+func followedShots(page: Int, complete: (shots: [DribbbleShot]?) -> Void) {
+    
+    let request = authRequestPath(DribbbleAPI.ShotsByFollowed.rawValue + "?page=\(page)&per_page=50", useMethod: .GET)
+    
+    Alamofire.request(request).responseJSON { (request, response, JSON) in
+        
+        if JSON.isSuccess {
+            
+            if let JSON = JSON.value as? [JSONDictionary] {
+                print("Profile Got")
+                let shots = JSON.map({ shotFromInfo($0) }).filter({ $0 != nil }).map({ $0! })
+                complete(shots: shots)
+            } else {
+                complete(shots: nil)
+            }
+            
+        } else {
+            complete(shots: nil)
+        }
+        
+        //
+        //        handleError(response, JSON: JSON.value, complete: { (statusCode, errorMesage) in
+        //            complete(nil)
+        //        })
         
     }
 }

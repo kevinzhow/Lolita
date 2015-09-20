@@ -24,6 +24,31 @@ var MenuOpen = false
 
 let LolitaColor = UIColor(red: 80.0/255.0, green: 227.0/255.0, blue: 194.0/255.0, alpha: 1.0)
 
+enum LolitaSelectChannel: Int {
+    case Popular = 0
+    case Animated
+    case Debuts
+    case Teams
+    case Followed
+    
+    var HumanRead: String {
+        switch self {
+        case .Popular:
+            return "popular"
+        case .Teams:
+            return "teams"
+        case .Animated:
+            return "animated"
+        case .Debuts:
+            return "debuts"
+        case .Followed:
+            return "followed"
+        }
+    }
+    
+    
+}
+
 class ViewController: UIViewController {
     @IBOutlet weak var popularButton: UIButton!
     @IBOutlet weak var animatedButton: UIButton!
@@ -31,28 +56,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var followedButton: UIButton!
     @IBOutlet weak var teamsButton: UIButton!
-    enum LolitaSelectChannel: Int {
-        case Popular = 0
-        case Animated
-        case Debuts
-        case Teams
-        case Followed
-        
-        var HumanRead: String {
-            switch self {
-            case .Popular:
-                return "popular"
-            case .Teams:
-                return "teams"
-            case .Animated:
-                return "animated"
-            case .Debuts:
-                return "debuts"
-            case .Followed:
-                return "followed"
-            }
-        }
-    }
+
     
     @IBOutlet weak var menuButtomTop: NSLayoutConstraint!
     
@@ -262,8 +266,8 @@ class ViewController: UIViewController {
         
         if let _ = Defaults[.dribbbleToken] {
 //            print(token)
-            self.state = .Timeline
             menuChannel = .Popular
+            self.state = .Timeline
         } else {
             self.state = .Welcome
         }
@@ -302,30 +306,41 @@ class ViewController: UIViewController {
     
     
     @IBAction func popular(sender: AnyObject) {
-            toggleMenu(self)
-            menuChannel = .Popular
+        handleNewChannel(.Popular)
     }
     
     @IBAction func animated(sender: AnyObject) {
-            toggleMenu(self)
-            menuChannel = .Animated
+        handleNewChannel(.Animated)
+
     }
     
     @IBAction func debuts(sender: AnyObject) {
-            toggleMenu(self)
-            menuChannel = .Debuts
+        handleNewChannel(.Debuts)
     }
     
     @IBAction func teams(sender: AnyObject) {
-            toggleMenu(self)
-            menuChannel = .Teams
+        handleNewChannel(.Teams)
     }
     
     @IBAction func followed(sender: AnyObject) {
-            toggleMenu(self)
-            menuChannel = .Followed
-        
+        handleNewChannel(.Followed)
     }
+    
+    
+    func handleNewChannel(channel: LolitaSelectChannel) {
+        toggleMenu(self)
+        
+        if menuChannel != channel {
+            shots = [DribbbleShot]()
+            
+            self.shotsCollectionView?.reloadData()
+            
+            menuChannel = channel
+            currentPage = 0
+            loadPage(currentPage)
+        }
+    }
+    
     func animateOnLogo() {
         
         dispatch_async(dispatch_get_main_queue(),{

@@ -260,56 +260,73 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         if loadingNewPage {
             return
         }
+        
         animateOnLogo()
         
         self.loadingNewPage = true
+        
         let productCount = self.shots.count
         
-        shotsByListType(DribbbleListType.Default, page: page) { (shots) -> Void in
-            
-            dispatch_async(dispatch_get_main_queue(),{
-                SVProgressHUD.dismiss()
-                
-                delay(1.0, work: { () -> Void in
-                    SVProgressHUD.setBackgroundColor(UIColor.whiteColor())
-                })
-            })
-            
-            
-            if let shots = shots {
-                
-                self.shots.appendContentsOf(shots)
-                    
-                if self.shots.count > productCount {
-                    dispatch_async(dispatch_get_main_queue(), {
-                        
-                        let totalInsert = self.shots.count - productCount
-                        
-                        var indexPaths = [NSIndexPath]()
-                        
-                        for i in 0...(totalInsert-1) {
-                            
-                            let row = productCount + i
-                            
-                            let indexPath = NSIndexPath(forRow: row, inSection: 0)
-                            
-                            indexPaths.append(indexPath)
-                        }
-                        
-                        print(indexPaths.count)
-                        
-                        self.shotsCollectionView?.insertItemsAtIndexPaths(indexPaths)
-                        self.loadingNewPage = false
-                        self.currentPage += 1
-                    })
-                } else {
-                    self.loadingNewPage = false
+        if let menuChannel = menuChannel {
+        
+            if menuChannel != .Followed {
+                shotsByListType(menuChannel, page: page) { (shots) -> Void in
+                    self.handleNewShots(shots, page: page, productCount: productCount)
                 }
-                
+            } else {
+                followedShots(page, complete: { (shots) -> Void in
+                    self.handleNewShots(shots, page: page, productCount: productCount)
+                })
+            }
+            
+        }
 
+    }
+    
+    func handleNewShots(shots: [DribbbleShot]?, page: Int, productCount: Int) {
+        
+        dispatch_async(dispatch_get_main_queue(),{
+            SVProgressHUD.dismiss()
+            
+            delay(1.0, work: { () -> Void in
+                SVProgressHUD.setBackgroundColor(UIColor.whiteColor())
+            })
+        })
+        
+        
+        if let shots = shots {
+            
+            self.shots.appendContentsOf(shots)
+            
+            if self.shots.count > productCount {
+                dispatch_async(dispatch_get_main_queue(), {
+                    
+                    let totalInsert = self.shots.count - productCount
+                    
+                    var indexPaths = [NSIndexPath]()
+                    
+                    for i in 0...(totalInsert-1) {
+                        
+                        let row = productCount + i
+                        
+                        let indexPath = NSIndexPath(forRow: row, inSection: 0)
+                        
+                        indexPaths.append(indexPath)
+                    }
+                    
+                    print(indexPaths.count)
+                    
+                    self.shotsCollectionView?.insertItemsAtIndexPaths(indexPaths)
+                    self.loadingNewPage = false
+                    self.currentPage += 1
+                })
             } else {
                 self.loadingNewPage = false
             }
+            
+            
+        } else {
+            self.loadingNewPage = false
         }
     }
 }
