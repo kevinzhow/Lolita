@@ -111,7 +111,7 @@ class ViewController: UIViewController {
         
         blurView = UIVisualEffectView(effect: darkBlur)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "moveSelectedCellBack", name: DribbleMoveSelectedCellBack, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "moveSelectedCellBack:", name: DribbleMoveSelectedCellBack, object: nil)
         // Do any additional setup after loading the view, typically from a nib.
     }
     

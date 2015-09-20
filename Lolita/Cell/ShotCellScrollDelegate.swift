@@ -23,6 +23,31 @@ extension ShotCell : UIScrollViewDelegate {
             
             print(scrollView.contentOffset.y)
             
+            var bottomBounceValue = -scrollView.contentOffset.y - 340
+            bottomBounceValue = bottomBounceValue/10.0
+            
+            print(bottomBounceValue)
+            
+            if bottomBounceValue <= 10 && bottomBounceValue >= 0 {
+                self.handleCardChange(Double(bottomBounceValue))
+            } else {
+                
+                if bottomBounceValue > 10 {
+                    
+                    handleCardChange(10)
+                    
+                    if bottomBounceValue > 12 {
+                        NSNotificationCenter.defaultCenter().postNotificationName(DribbleMoveSelectedCellBack, object: true)
+                        self.pageLoaded = false
+                    }
+                    
+                } else {
+                    ResetCardChange()
+                }
+                
+            }
+            
+            
             if shotImageTop.constant < 0 {
                 
                 let newValue = shotImageTop.constant + 1
@@ -52,7 +77,7 @@ extension ShotCell : UIScrollViewDelegate {
                     handleCardChange(-10)
                     
                     if bottomBounceValue > 12 {
-                        NSNotificationCenter.defaultCenter().postNotificationName(DribbleMoveSelectedCellBack, object: nil)
+                        NSNotificationCenter.defaultCenter().postNotificationName(DribbleMoveSelectedCellBack, object: false)
                         self.pageLoaded = false
                     }
                     

@@ -188,8 +188,8 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         }, completion: nil)
     }
     
-    func moveSelectedCellBack() {
-        if let selectedCell = selectedCell, originFrame = selectedCell.originFrame {
+    func moveSelectedCellBack(notification: NSNotification) {
+        if let selectedCell = selectedCell, originFrame = selectedCell.originFrame, top = notification.object as? Bool{
             
             selectedCell.removeFromSuperview()
             
@@ -203,7 +203,12 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
             
             selectedCell.frame = newFrame
             
-            selectedCell.handleCardChange(-12)
+            if top {
+                selectedCell.handleCardChange(10)
+            } else {
+                selectedCell.handleCardChange(-10)
+            }
+
             
             UIView.animateKeyframesWithDuration(0.5, delay: 0, options: UIViewKeyframeAnimationOptions.AllowUserInteraction, animations: {
                 
