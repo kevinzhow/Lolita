@@ -114,6 +114,7 @@
                                     <constraint firstItem="qn5-MO-I2C" firstAttribute="centerY" secondItem="utc-Ac-Wg4" secondAttribute="centerY" id="U3r-Mo-je6"/>
                                     <constraint firstItem="fSY-JA-sAT" firstAttribute="top" secondItem="utc-Ac-Wg4" secondAttribute="top" constant="11" id="VPd-s9-1DH"/>
                                     <constraint firstAttribute="trailing" secondItem="yoA-hp-116" secondAttribute="trailing" constant="8" id="cVU-rL-l7A"/>
+                                    <constraint firstItem="qn5-MO-I2C" firstAttribute="centerY" secondItem="fSY-JA-sAT" secondAttribute="centerY" id="iag-Ck-WcA"/>
                                     <constraint firstItem="yoA-hp-116" firstAttribute="centerY" secondItem="utc-Ac-Wg4" secondAttribute="centerY" id="jeg-0x-6M8"/>
                                     <constraint firstItem="fSY-JA-sAT" firstAttribute="centerY" secondItem="utc-Ac-Wg4" secondAttribute="centerY" id="oi6-VP-21d"/>
                                     <constraint firstItem="yoA-hp-116" firstAttribute="centerY" secondItem="fSY-JA-sAT" secondAttribute="centerY" id="s9G-Tn-XCM"/>
@@ -122,6 +123,7 @@
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="oi6-VP-21d"/>
+                                        <exclude reference="U3r-Mo-je6"/>
                                         <exclude reference="7lB-1Q-Szn"/>
                                         <exclude reference="PXv-2C-X2J"/>
                                         <exclude reference="jeg-0x-6M8"/>
