@@ -83,8 +83,8 @@ class ViewController: UIViewController {
             menuButton.tintColor = UIColor.whiteColor()
             profileButton.tintColor = UIColor.whiteColor()
         } else {
-            menuButton.tintColor = UIColor.blackColor().colorWithAlphaComponent(0.8)
-            profileButton.tintColor = UIColor.blackColor().colorWithAlphaComponent(0.8)
+            menuButton.tintColor = UIColor.blackColor().colorWithAlphaComponent(0.3)
+            profileButton.tintColor = UIColor.blackColor().colorWithAlphaComponent(0.3)
         }
     }
     
