@@ -20,14 +20,37 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppLogo" translatesAutoresizingMaskIntoConstraints="NO" id="kCU-vt-zB1">
+                                <rect key="frame" x="287" y="244" width="25" height="11"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="HIP-in-oTb"/>
+                                    <constraint firstAttribute="height" constant="11" id="hzb-Ma-GJM"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lolita" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Off-Aj-yDQ">
+                                <rect key="frame" x="279" y="260.5" width="42" height="21"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="hoZ-JD-nm4"/>
+                                    <constraint firstAttribute="width" constant="42" id="tjL-yr-xp2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="10"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="dz2-dS-B2b" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="2y5-z8-jeB"/>
+                            <constraint firstItem="kCU-vt-zB1" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="7cA-VP-YVh"/>
                             <constraint firstItem="dz2-dS-B2b" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="-20" id="AEu-zM-xXv"/>
+                            <constraint firstItem="Off-Aj-yDQ" firstAttribute="centerX" secondItem="kCU-vt-zB1" secondAttribute="centerX" id="FNN-b9-coe"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="dz2-dS-B2b" secondAttribute="bottom" id="Jgu-JE-O5p"/>
                             <constraint firstAttribute="trailing" secondItem="dz2-dS-B2b" secondAttribute="trailing" id="g26-FD-8iF"/>
+                            <constraint firstItem="Off-Aj-yDQ" firstAttribute="top" secondItem="kCU-vt-zB1" secondAttribute="bottom" constant="5" id="odk-nI-cGT"/>
+                            <constraint firstItem="kCU-vt-zB1" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-50" id="xCM-Xd-Qwx"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -37,6 +60,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="AppLogo" width="24" height="10"/>
         <image name="BG" width="750" height="1334"/>
     </resources>
 </document>
