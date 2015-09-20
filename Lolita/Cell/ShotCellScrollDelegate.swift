@@ -13,6 +13,10 @@ extension ShotCell : UIScrollViewDelegate {
         
         let velocity = scrollView.panGestureRecognizer.velocityInView(self)
         
+        if !self.pageLoaded  {
+            return
+        }
+        
         //For Bounce
         
         if scrollView.contentOffset.y < -340{
@@ -36,20 +40,26 @@ extension ShotCell : UIScrollViewDelegate {
             
             var bottomBounceValue = (scrollView.contentOffset.y + scrollView.frame.height) - scrollView.contentSize.height - 20
             bottomBounceValue = bottomBounceValue/10.0
+            
             print(bottomBounceValue)
             
             if bottomBounceValue <= 10 && bottomBounceValue >= 0 {
-                
-                handleCardChange(Double(-bottomBounceValue))
-                
+                self.handleCardChange(Double(-bottomBounceValue))
             } else {
+                
                 if bottomBounceValue > 10 {
+                    
                     handleCardChange(-10)
+                    
+                    if bottomBounceValue > 12 {
+                        NSNotificationCenter.defaultCenter().postNotificationName(DribbleMoveSelectedCellBack, object: nil)
+                    }
+                    
+                } else {
+                    ResetCardChange()
                 }
                 
             }
-            
-            
             return
         }
         //

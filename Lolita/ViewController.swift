@@ -11,6 +11,8 @@ import SafariServices
 import GCDWebServer
 import SwiftyUserDefaults
 
+let DribbleMoveSelectedCellBack = "DribbleMoveSelectedCellBack"
+
 let ShotCollectionViewTopInset: CGFloat = 50
 
 class ViewController: UIViewController {
@@ -44,6 +46,8 @@ class ViewController: UIViewController {
     var scrollUp = false
     
     var currentPage = 1
+    
+    var selectedCell: ShotCell?
     
     enum HomeState: Int {
         case Welcome = 0
@@ -106,6 +110,8 @@ class ViewController: UIViewController {
         }
         
         blurView = UIVisualEffectView(effect: darkBlur)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "moveSelectedCellBack", name: DribbleMoveSelectedCellBack, object: nil)
         // Do any additional setup after loading the view, typically from a nib.
     }
     

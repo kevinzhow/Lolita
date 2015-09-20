@@ -70,6 +70,8 @@ class ShotCell: UICollectionViewCell {
     
     var scrollUp = false
     
+    var pageLoaded = false
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -86,6 +88,7 @@ class ShotCell: UICollectionViewCell {
         shotDetailsWebView.scrollView.backgroundColor = UIColor.clearColor()
         shotDetailsWebView.opaque = false
         blurView = UIVisualEffectView(effect: darkBlur)
+        
         // Initialization code
     }
     
@@ -135,6 +138,8 @@ class ShotCell: UICollectionViewCell {
                             
                             self.shotDetailsWebView.loadHTMLString(contents as String, baseURL: NSURL(fileURLWithPath: NSBundle.mainBundle().bundlePath))
                             
+                            self.pageLoaded = true
+                            
                         } catch let error as NSError {
                             print(error.description)
                         }
@@ -149,24 +154,36 @@ class ShotCell: UICollectionViewCell {
     }
     
     func configCard() {
-        shotContainerTop.constant = 15
+        shotContainerTop.constant = 8
         shotContainerTrailing.constant = 15
-        shotContainerBottom.constant = 15
+        shotContainerBottom.constant = 8
         shotContainerLeading.constant = 15
         shotContainerView.layer.cornerRadius = 8
         shotDetailsWebView.userInteractionEnabled = false
         
+        changeShotContainerRadius(0, to: 8)
+        
+        bottomBar.hidden = true
+        
+        handleCardChangeAnimation(-12)
+
+        UIView.animateWithDuration(0.5) { () -> Void in
+            self.shotImageTop.constant = 0
+            self.bottomBarBottom.constant = -50
+            self.layoutIfNeeded()
+        }
+    }
+    
+    func changeShotContainerRadius(from: CGFloat, to: CGFloat) {
         let animation = CABasicAnimation(keyPath: "cornerRadius")
-        animation.fromValue = 0
+        animation.fromValue = from
         animation.duration = 0.5
-        animation.toValue = 8
+        animation.toValue = to
         animation.repeatCount = 0
         animation.fillMode = kCAFillModeForwards
         animation.removedOnCompletion = false
-
-        shotContainerView.layer.addAnimation(animation, forKey: "cornerRadius")
         
-        bottomBar.removeFromSuperview()
+        shotContainerView.layer.addAnimation(animation, forKey: "cornerRadius")
     }
     
     func configDetail() {
@@ -175,23 +192,19 @@ class ShotCell: UICollectionViewCell {
         shotContainerBottom.constant = 0
         shotContainerLeading.constant = 0
         shotDetailsWebView.userInteractionEnabled = true
-        let animation = CABasicAnimation(keyPath: "cornerRadius")
-        animation.fromValue = 8
-        animation.duration = 0.5
-        animation.toValue = 0
-        animation.repeatCount = 0
-        animation.fillMode = kCAFillModeForwards
-        animation.removedOnCompletion = false
-        shotContainerView.layer.addAnimation(animation, forKey: "cornerRadius")
+        
+        changeShotContainerRadius(8, to: 0)
         
         if windowFrame?.origin.y > 300 {
             handleCardChangeAnimation(-15)
         } else {
             handleCardChangeAnimation(5)
         }
+        
         blurView!.frame = bottomBar.bounds
         bottomBar.insertSubview(blurView!, aboveSubview: bottomBarContainerView)
         bottomBar.hidden = false
+        
         prepareShotWebView()
         
         delay(0.8) { () -> Void in
@@ -238,6 +251,14 @@ class ShotCell: UICollectionViewCell {
         var rotationAndPerspectiveTransform = CATransform3DIdentity
         rotationAndPerspectiveTransform.m34 = 1.0 / -500
         rotationAndPerspectiveTransform = CATransform3DRotate(rotationAndPerspectiveTransform, CGFloat(to * M_PI / 180.0), 1.0, 0.0, 0.0)
+        
+        layer.transform = rotationAndPerspectiveTransform
+    }
+    
+    func ResetCardChange() {
+        let layer = shotContainerView.layer
+        
+        let rotationAndPerspectiveTransform = CATransform3DIdentity
         
         layer.transform = rotationAndPerspectiveTransform
     }

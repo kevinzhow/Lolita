@@ -161,9 +161,13 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         
         let cell = collectionView.cellForItemAtIndexPath(indexPath) as! ShotCell
         
+        selectedCell = cell
+        
         cell.removeFromSuperview()
         
         cell.originFrame = cell.frame
+        
+        print(cell.frame)
         
         let tapPointInView = shotsCollectionView?.convertPoint(CGPointMake(cell.frame.origin.x, cell.frame.origin.y), toView: view)
         
@@ -182,6 +186,33 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
             cell.layoutIfNeeded()
             
         }, completion: nil)
+    }
+    
+    func moveSelectedCellBack() {
+        if let selectedCell = selectedCell, originFrame = selectedCell.originFrame {
+            
+            selectedCell.removeFromSuperview()
+            
+            print(selectedCell.originFrame)
+
+            shotsCollectionView?.addSubview(selectedCell)
+            
+            let tapPointInView = view.convertPoint(CGPointMake(selectedCell.frame.origin.x, selectedCell.frame.origin.y), toView: shotsCollectionView)
+            
+            let newFrame = CGRect(x: tapPointInView.x, y: tapPointInView.y, width: selectedCell.frame.width, height: selectedCell.frame.height)
+            
+            
+            selectedCell.frame = newFrame
+
+            
+            UIView.animateKeyframesWithDuration(0.5, delay: 0, options: UIViewKeyframeAnimationOptions.AllowUserInteraction, animations: {
+                
+                selectedCell.frame = originFrame
+                selectedCell.state = .Card
+                selectedCell.layoutIfNeeded()
+                
+            }, completion: nil)
+        }
     }
     
 }
