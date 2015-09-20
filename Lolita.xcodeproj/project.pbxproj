@@ -22,6 +22,8 @@
 		6AAC00111BAD98FD00190C0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AAC000F1BAD98FD00190C0D /* LaunchScreen.storyboard */; };
 		6AAC00191BADA5E500190C0D /* LolitaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAC00181BADA5E500190C0D /* LolitaService.swift */; settings = {ASSET_TAGS = (); }; };
 		6AAC001C1BADBBDC00190C0D /* HomeStatesMechine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAC001B1BADBBDC00190C0D /* HomeStatesMechine.swift */; settings = {ASSET_TAGS = (); }; };
+		6AE73C8C1BAEDF9000D4B487 /* ShotComment.html in Resources */ = {isa = PBXBuildFile; fileRef = 6AE73C8A1BAEDF9000D4B487 /* ShotComment.html */; settings = {ASSET_TAGS = (); }; };
+		6AE73C8D1BAEDF9000D4B487 /* Shot.html in Resources */ = {isa = PBXBuildFile; fileRef = 6AE73C8B1BAEDF9000D4B487 /* Shot.html */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		6AAC00121BAD98FD00190C0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6AAC00181BADA5E500190C0D /* LolitaService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LolitaService.swift; path = Service/LolitaService.swift; sourceTree = "<group>"; };
 		6AAC001B1BADBBDC00190C0D /* HomeStatesMechine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeStatesMechine.swift; sourceTree = "<group>"; };
+		6AE73C8A1BAEDF9000D4B487 /* ShotComment.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ShotComment.html; sourceTree = "<group>"; };
+		6AE73C8B1BAEDF9000D4B487 /* Shot.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Shot.html; sourceTree = "<group>"; };
 		987BAEE1664F2047AA884005 /* Pods_Lolita.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lolita.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D598DEAE487748593220B67E /* Pods-Lolita.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lolita.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lolita/Pods-Lolita.release.xcconfig"; sourceTree = "<group>"; };
 		ECF0F7FA9D3279FCF2D53EEA /* Pods-Lolita.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lolita.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Lolita/Pods-Lolita.debug.xcconfig"; sourceTree = "<group>"; };
@@ -97,6 +101,7 @@
 		6AAC00021BAD98FD00190C0D /* Lolita */ = {
 			isa = PBXGroup;
 			children = (
+				6AE73C8E1BAEDF9300D4B487 /* Templates */,
 				6A0A0FA31BADF1E6001EBF98 /* Lolita-Bridge.h */,
 				6AAC00031BAD98FD00190C0D /* AppDelegate.swift */,
 				6A0A0F961BADD52A001EBF98 /* DribbbleFlowLayout.swift */,
@@ -130,6 +135,15 @@
 				D576880A5664D36AEE6E60B6 /* Pods */,
 				7382A34F6032215C4A540FD1 /* Frameworks */,
 			);
+			sourceTree = "<group>";
+		};
+		6AE73C8E1BAEDF9300D4B487 /* Templates */ = {
+			isa = PBXGroup;
+			children = (
+				6AE73C8A1BAEDF9000D4B487 /* ShotComment.html */,
+				6AE73C8B1BAEDF9000D4B487 /* Shot.html */,
+			);
+			name = Templates;
 			sourceTree = "<group>";
 		};
 		7382A34F6032215C4A540FD1 /* Frameworks */ = {
@@ -209,7 +223,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AE73C8C1BAEDF9000D4B487 /* ShotComment.html in Resources */,
 				6AAC00111BAD98FD00190C0D /* LaunchScreen.storyboard in Resources */,
+				6AE73C8D1BAEDF9000D4B487 /* Shot.html in Resources */,
 				6AAC000E1BAD98FD00190C0D /* Assets.xcassets in Resources */,
 				6AAC00091BAD98FD00190C0D /* Main.storyboard in Resources */,
 				6A0A0F8D1BADC1AA001EBF98 /* ShotCell.xib in Resources */,

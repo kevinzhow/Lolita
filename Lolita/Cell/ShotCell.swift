@@ -27,8 +27,18 @@ class ShotCell: UICollectionViewCell {
         }
     }
     
-    @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet weak var shotDetailsWebView: UIWebView!
     
+    
+    @IBOutlet weak var shotDetailFooter: UIView!
+    
+    let darkBlur = UIBlurEffect(style: UIBlurEffectStyle.Light)
+    
+    @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet weak var bottomBar: UIView!
+    
+    @IBOutlet weak var bottomBarBottom: NSLayoutConstraint!
+    @IBOutlet weak var bottomBarContainerView: UIView!
     @IBOutlet weak var shotContainerTop: NSLayoutConstraint!
     @IBOutlet weak var shotContainerTrailing: NSLayoutConstraint!
     @IBOutlet weak var shotContainerBottom: NSLayoutConstraint!
@@ -52,9 +62,12 @@ class ShotCell: UICollectionViewCell {
     
     var shot: DribbbleShot?
     
+    var blurView : UIVisualEffectView?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        bottomBar.hidden = true
         shotImageView.runLoopMode = NSRunLoopCommonModes
         shotContainerView.layer.cornerRadius = 8
         shotContainerView.layer.masksToBounds = true
@@ -99,6 +112,12 @@ class ShotCell: UICollectionViewCell {
         } else {
             handleCardChangeAnimation(5)
         }
+        
+        blurView = UIVisualEffectView(effect: darkBlur)
+        blurView!.frame = bottomBar.bounds
+        bottomBar.insertSubview(blurView!, aboveSubview: bottomBarContainerView)
+        bottomBar.hidden = false
+        bottomBarBottom.constant = 0
 
     }
     
