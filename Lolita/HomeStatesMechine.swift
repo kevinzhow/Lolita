@@ -30,7 +30,7 @@ extension ViewController {
             shotsCollectionView.hidden = false
             
         } else {
-            shotsCollectionView = UICollectionView(frame: CGRectMake(0, 0, view.frame.width, view.frame.height), collectionViewLayout: UICollectionViewFlowLayout())
+            shotsCollectionView = UICollectionView(frame: CGRectMake(0, 0, view.frame.width, view.frame.height), collectionViewLayout: DribbbleFlowLayout())
             shotsCollectionView?.backgroundColor = UIColor.clearColor()
             
             shotsCollectionView?.registerNib(UINib(nibName: "ShotCell", bundle: nil), forCellWithReuseIdentifier: "ShotCell")
