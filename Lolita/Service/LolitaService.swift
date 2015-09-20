@@ -98,6 +98,7 @@ func cancel(cancelableTask: CancelableTask?) {
 
 extension DefaultsKeys {
     static let dribbbleToken = DefaultsKey<String?>("dribbbleToken")
+    static let dribbbleLike = DefaultsKey<[String: AnyObject]>("dribbleLike")
 }
 
 func authRequestPath(path: String, useMethod method: Alamofire.Method) -> NSMutableURLRequest {
@@ -144,11 +145,15 @@ func dribbbleTokenWithCode(code: String , complete: (finish: Bool) -> Void) {
                     SVProgressHUD.dismiss()
                 })
                 
+                complete(finish: true)
+                
             } else {
                 dispatch_async(dispatch_get_main_queue(),{
                     
                     SVProgressHUD.showErrorWithStatus("Please Try Again")
                 })
+                
+                complete(finish: false)
             }
     }
 }

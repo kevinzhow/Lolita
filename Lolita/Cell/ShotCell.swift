@@ -8,6 +8,7 @@
 
 import UIKit
 import OLImageView
+import SwiftyUserDefaults
 
 let NSBundleURL = NSURL(fileURLWithPath: NSBundle.mainBundle().bundlePath)
 let ShotMaxDegree: CGFloat = 8
@@ -97,8 +98,30 @@ class ShotCell: UICollectionViewCell {
         avatarImageView.layer.cornerRadius = avatarImageView.frame.size.height/2.0
         avatarImageView.layer.masksToBounds = true
         
-        shotDetailFooter.userInteractionEnabled = false
+//        shotDetailFooter.userInteractionEnabled = false
+
+        if let shot = shot {
+            
+            var dribbbleLike = Defaults[.dribbbleLike]
+            
+            if let likeStatus = dribbbleLike["\(shot.id)"] as? Bool {
+                if likeStatus {
+                    print("User Like this")
+                }
+                
+            }
+        }
         // Initialization code
+    }
+    @IBAction func toggleLikeStatus(sender: AnyObject) {
+        if let shot = shot {
+             likeByShotID(shot.id, complete: { (likeID) -> Void in
+                if let likeID = likeID {
+                    print("Like Success")
+                }
+             })
+        }
+       
     }
     
     func prepareShotWebView() {
@@ -286,5 +309,6 @@ class ShotCell: UICollectionViewCell {
     @IBOutlet weak var shareDribbble: UIButton!
     
     @IBAction func toggleBucket(sender: AnyObject) {
+        
     }
 }

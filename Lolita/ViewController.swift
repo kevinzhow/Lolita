@@ -13,11 +13,15 @@ import SwiftyUserDefaults
 
 let DribbleMoveSelectedCellBack = "DribbleMoveSelectedCellBack"
 
+let LolitaToTimeLineNotification = "LolitaToTimeLineNotification"
+
 let ShotCollectionViewTopInset: CGFloat = 50
 
 class ViewController: UIViewController {
     
     @IBOutlet weak var topBarViewHeight: NSLayoutConstraint!
+    
+    @IBOutlet weak var appLogoImage: UIImageView!
     
     @IBOutlet weak var blurViewContainer: UIView!
     
@@ -34,6 +38,19 @@ class ViewController: UIViewController {
     var shotsCollectionView: UICollectionView?
     
     @IBOutlet weak var topBarView: UIView!
+    
+    @IBOutlet weak var menuButton: UIButton!
+    
+    @IBAction func toggleMenu(sender: AnyObject) {
+        
+    }
+    
+    @IBOutlet weak var profileButton: UIButton!
+    
+    @IBAction func toggleProfile(sender: AnyObject) {
+        
+    }
+    
     
     var shots = [DribbbleShot]()
     
@@ -61,7 +78,7 @@ class ViewController: UIViewController {
         didSet {
             switch self.state! {
             case .Welcome:
-                break
+                becomeWelcome()
             case .Timeline:
                 becomeTimeline()
             case .Likes:
@@ -72,7 +89,7 @@ class ViewController: UIViewController {
     
     @IBAction func signInWithDribbble(sender: AnyObject) {
         
-        let URL = "\(DribbbleOauthURL)?client_id=\(DribbbleClientID)&redirect_uri=http://127.0.0.1:8180/dribbble&scope=public+comment"
+        let URL = "\(DribbbleOauthURL)?client_id=\(DribbbleClientID)&redirect_uri=http://127.0.0.1:8180/dribbble&scope=public+comment+write"
         
         let safariViewController = SFSafariViewController(URL: NSURL(string:URL)!)
         
@@ -81,10 +98,12 @@ class ViewController: UIViewController {
         webServer.addDefaultHandlerForMethod("GET", requestClass: GCDWebServerRequest.self, processBlock: {request in
             
             if let query = request.query, code = query["code"] as? String {
-                print(code)
+//                print(code)
                 
                 dribbbleTokenWithCode(code, complete: { (finish) -> Void in
                     print("Token Got")
+                    webServer.stop()
+                    NSNotificationCenter.defaultCenter().postNotificationName(LolitaToTimeLineNotification, object: nil)
                 })
             }
             
@@ -104,8 +123,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let token = Defaults[.dribbbleToken] {
-            print(token)
+        if let _ = Defaults[.dribbbleToken] {
+//            print(token)
             self.state = .Timeline
         } else {
             self.state = .Welcome
@@ -114,7 +133,13 @@ class ViewController: UIViewController {
         blurView = UIVisualEffectView(effect: darkBlur)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "moveSelectedCellBack:", name: DribbleMoveSelectedCellBack, object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "lolitaBecomeTimeline", name: LolitaToTimeLineNotification, object: nil)
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    func lolitaBecomeTimeline() {
+        becomeTimeline()
     }
     
     override func viewDidLayoutSubviews() {

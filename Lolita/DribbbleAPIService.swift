@@ -11,7 +11,6 @@ import Alamofire
 import SVProgressHUD
 import SwiftyUserDefaults
 
-
 enum DribbbleAPI: String {
     case Shots = "/shots"
 }
@@ -74,6 +73,40 @@ func commentsByShotID(shotID: Int, complete: (comments: [DribbbleComment]?) -> V
             
         } else {
             complete(comments: nil)
+        }
+        
+        //
+        //        handleError(response, JSON: JSON.value, complete: { (statusCode, errorMesage) in
+        //            complete(nil)
+        //        })
+        
+    }
+}
+
+func likeByShotID(shotID: Int, complete: (likeID: Int?) -> Void) {
+    
+    let request = authRequestPath("\(DribbbleAPI.Shots.rawValue)/\(shotID)/like", useMethod: .POST)
+    
+    Alamofire.request(request).responseJSON { (request, response, JSON) in
+        
+        if JSON.isSuccess {
+            
+            if let JSON = JSON.value as? JSONDictionary, likeID = JSON["id"] as? Int {
+                print("Like Got")
+                
+                var dribbbleLike = Defaults[.dribbbleLike]
+                
+                dribbbleLike["\(shotID)"] = true
+                
+                Defaults[.dribbbleLike] = dribbbleLike
+                
+                complete(likeID: likeID)
+            } else {
+                complete(likeID: nil)
+            }
+            
+        } else {
+            complete(likeID: nil)
         }
         
         //

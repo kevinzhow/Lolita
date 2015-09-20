@@ -31,6 +31,9 @@
                                             <constraint firstAttribute="width" constant="19" id="Pkf-HQ-jTm"/>
                                         </constraints>
                                         <state key="normal" image="like"/>
+                                        <connections>
+                                            <action selector="toggleLikeStatus:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Epe-Hy-35Q"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FLZ-yn-7q9">
                                         <rect key="frame" x="269" y="11" width="32" height="18"/>

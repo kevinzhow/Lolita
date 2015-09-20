@@ -13,6 +13,8 @@ extension ViewController {
     
     func becomeTimeline() {
         
+        appLogoImage.hidden = false
+        
         logoImageCenterY.constant = -(view.frame.height/CGFloat(2.0)) + 30.0
         
         labelImage.hidden = true
@@ -22,6 +24,10 @@ extension ViewController {
         footerMessageLabel.hidden = true
         
         logoImage.hidden = true
+        
+        menuButton.hidden = false
+        
+        profileButton.hidden = false
         
         view.layoutIfNeeded()
         
@@ -50,5 +56,28 @@ extension ViewController {
         }
         
         loadPage(currentPage)
+    }
+    
+    func becomeWelcome() {
+        
+        menuButton.hidden = true
+        
+        profileButton.hidden = true
+        
+        appLogoImage.hidden = true
+        
+        labelImage.hidden = false
+        
+        signInButton.hidden = false
+        
+        footerMessageLabel.hidden = false
+        
+        logoImage.hidden = false
+        
+        if let shotsCollectionView = shotsCollectionView {
+            
+            shotsCollectionView.hidden = true
+            
+        }
     }
 }
