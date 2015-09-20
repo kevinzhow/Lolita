@@ -58,6 +58,7 @@ class ShotCell: UICollectionViewCell {
         shotImageView.runLoopMode = NSRunLoopCommonModes
         shotContainerView.layer.cornerRadius = 8
         shotContainerView.layer.masksToBounds = true
+        shotImageView.clipsToBounds = true
         // Initialization code
     }
     
@@ -67,6 +68,15 @@ class ShotCell: UICollectionViewCell {
         shotContainerBottom.constant = 15
         shotContainerLeading.constant = 15
         shotContainerView.layer.cornerRadius = 8
+        
+        let animation = CABasicAnimation(keyPath: "cornerRadius")
+        animation.fromValue = 0
+        animation.duration = 0.5
+        animation.toValue = 8
+        animation.repeatCount = 0
+        animation.fillMode = kCAFillModeForwards
+        animation.removedOnCompletion = false
+        shotContainerView.layer.addAnimation(animation, forKey: "cornerRadius")
     }
     
     func configDetail() {
@@ -76,24 +86,48 @@ class ShotCell: UICollectionViewCell {
         shotContainerLeading.constant = 0
 
         let animation = CABasicAnimation(keyPath: "cornerRadius")
-        
-        // 设置动画初始值
         animation.fromValue = 8
-        
         animation.duration = 0.5
-        
-        // 设置动画结束时候的值
         animation.toValue = 0
-        
-        // 动画重复多少次
         animation.repeatCount = 0
-        
         animation.fillMode = kCAFillModeForwards
-            
         animation.removedOnCompletion = false
-        
-        // 最后，将动画添加到 Layer 上
         shotContainerView.layer.addAnimation(animation, forKey: "cornerRadius")
+        
+        if windowFrame?.origin.y > 300 {
+            handleCardChangeAnimation(-15)
+        } else {
+            handleCardChangeAnimation(5)
+        }
+
+    }
+    
+    func handleCardChangeAnimation(from: Double) {
+        let layer = shotContainerView.layer
+        
+        var rotationAndPerspectiveTransform = CATransform3DIdentity
+        rotationAndPerspectiveTransform.m34 = 1.0 / -500
+        rotationAndPerspectiveTransform = CATransform3DRotate(rotationAndPerspectiveTransform, CGFloat(from * M_PI / 180.0), 1.0, 0.0, 0.0)
+        
+        var rotationAndPerspectiveTransform2 = CATransform3DIdentity
+        rotationAndPerspectiveTransform2.m34 = 1.0 / -500
+        rotationAndPerspectiveTransform2 = CATransform3DRotate(rotationAndPerspectiveTransform, CGFloat(0.0 * M_PI / 180.0), 1.0, 0.0, 0.0)
+        let transformAnim = CAKeyframeAnimation(
+            keyPath:"transform")
+        
+        transformAnim.values  = [
+            NSValue(CATransform3D: CATransform3DIdentity) ,
+            NSValue(CATransform3D: rotationAndPerspectiveTransform) ,
+            NSValue(CATransform3D: rotationAndPerspectiveTransform2) ,
+            NSValue(CATransform3D: CATransform3DIdentity)]
+        transformAnim.keyTimes = [0, 0.33, 0.5, 1]
+        transformAnim.duration = 0.8
+        transformAnim.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+        transformAnim.removedOnCompletion = false
+        transformAnim.fillMode = kCAFillModeForwards
+        
+        layer.addAnimation(transformAnim,
+            forKey: "transform")
         
     }
 
