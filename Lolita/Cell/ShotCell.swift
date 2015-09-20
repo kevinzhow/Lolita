@@ -72,7 +72,70 @@ class ShotCell: UICollectionViewCell {
         shotContainerView.layer.cornerRadius = 8
         shotContainerView.layer.masksToBounds = true
         shotImageView.clipsToBounds = true
+        
+        shotDetailsWebView.scrollView.contentInset = UIEdgeInsets(top: 320, left: 0, bottom: 50, right: 0)
+        shotDetailsWebView.userInteractionEnabled = false
+        blurView = UIVisualEffectView(effect: darkBlur)
         // Initialization code
+    }
+    
+    func prepareShotWebView() {
+        if let shot = shot {
+            
+            let mainHTML = NSBundle.mainBundle().URLForResource("Shot", withExtension:"html")
+            
+            do {
+                var contents = try NSString(contentsOfFile: mainHTML!.path!, encoding: NSUTF8StringEncoding)
+                
+                if let description = shot.description {
+                    contents = contents.stringByReplacingOccurrencesOfString("#ShotDescription", withString: description)
+                } else {
+                    contents = contents.stringByReplacingOccurrencesOfString("#ShotDescription", withString: "")
+                }
+                
+                shotDetailsWebView.loadHTMLString(contents as String, baseURL: nil)
+                
+                commentsByShotID(shot.id, complete: { (comments) -> Void in
+                    
+                    if let comments = comments {
+                        
+                        let commnetHTML = NSBundle.mainBundle().URLForResource("ShotComment", withExtension:"html")
+                        
+                        do {
+                            let commentContent = try NSString(contentsOfFile: commnetHTML!.path!, encoding: NSUTF8StringEncoding)
+                            
+                            var commentsContent = ""
+                            
+                            for comment in comments {
+                                
+                                var newContent = commentContent.stringByReplacingOccurrencesOfString("#ShotUserAvatar", withString: comment.user.avatar_url)
+                                
+                                newContent = newContent.stringByReplacingOccurrencesOfString("#ShotUserName", withString: comment.user.name)
+                                
+                                newContent = newContent.stringByReplacingOccurrencesOfString("#ShotCommentContent", withString: comment.body)
+                                
+                                newContent = newContent.stringByReplacingOccurrencesOfString("#ShotCommentCreatedAt", withString: comment.created_at.timeAgoSinceNow())
+                                
+                                print(newContent)
+                                
+                                commentsContent += newContent as String
+                            }
+                            
+                            contents = contents.stringByReplacingOccurrencesOfString("#ShotComments", withString: commentsContent)
+                            
+                            self.shotDetailsWebView.loadHTMLString(contents as String, baseURL: NSURL(fileURLWithPath: NSBundle.mainBundle().bundlePath))
+                            
+                        } catch let error as NSError {
+                            print(error.description)
+                        }
+                    }
+                })
+                
+                
+            } catch let error as NSError {
+                print(error.description)
+            }
+        }
     }
     
     func configCard() {
@@ -81,6 +144,7 @@ class ShotCell: UICollectionViewCell {
         shotContainerBottom.constant = 15
         shotContainerLeading.constant = 15
         shotContainerView.layer.cornerRadius = 8
+        shotDetailsWebView.userInteractionEnabled = false
         
         let animation = CABasicAnimation(keyPath: "cornerRadius")
         animation.fromValue = 0
@@ -89,7 +153,10 @@ class ShotCell: UICollectionViewCell {
         animation.repeatCount = 0
         animation.fillMode = kCAFillModeForwards
         animation.removedOnCompletion = false
+
         shotContainerView.layer.addAnimation(animation, forKey: "cornerRadius")
+        
+        bottomBar.removeFromSuperview()
     }
     
     func configDetail() {
@@ -97,7 +164,7 @@ class ShotCell: UICollectionViewCell {
         shotContainerTrailing.constant = 0
         shotContainerBottom.constant = 0
         shotContainerLeading.constant = 0
-
+        shotDetailsWebView.userInteractionEnabled = true
         let animation = CABasicAnimation(keyPath: "cornerRadius")
         animation.fromValue = 8
         animation.duration = 0.5
@@ -112,13 +179,19 @@ class ShotCell: UICollectionViewCell {
         } else {
             handleCardChangeAnimation(5)
         }
-        
-        blurView = UIVisualEffectView(effect: darkBlur)
         blurView!.frame = bottomBar.bounds
         bottomBar.insertSubview(blurView!, aboveSubview: bottomBarContainerView)
         bottomBar.hidden = false
-        bottomBarBottom.constant = 0
-
+        prepareShotWebView()
+        
+        delay(0.8) { () -> Void in
+            UIView.animateWithDuration(0.5) { () -> Void in
+                self.bottomBarBottom.constant = 0
+                self.blurView!.frame = self.bottomBar.bounds
+                self.layoutIfNeeded()
+            }
+        }
+        
     }
     
     func handleCardChangeAnimation(from: Double) {

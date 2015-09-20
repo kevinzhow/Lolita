@@ -55,3 +55,31 @@ func shotsByListType(type: DribbbleListType, page: Int, complete: (shots: [Dribb
         
     }
 }
+
+func commentsByShotID(shotID: Int, complete: (comments: [DribbbleComment]?) -> Void) {
+    
+    let request = authRequestPath("\(DribbbleAPI.Shots.rawValue)/\(shotID)/comments", useMethod: .GET)
+    
+    Alamofire.request(request).responseJSON { (request, response, JSON) in
+        
+        if JSON.isSuccess {
+            
+            if let JSON = JSON.value as? [JSONDictionary] {
+                print("Comments Got")
+                let comments = JSON.map({ commentFromInfo($0) }).filter({ $0 != nil }).map({ $0! })
+                complete(comments: comments)
+            } else {
+                complete(comments: nil)
+            }
+            
+        } else {
+            complete(comments: nil)
+        }
+        
+        //
+        //        handleError(response, JSON: JSON.value, complete: { (statusCode, errorMesage) in
+        //            complete(nil)
+        //        })
+        
+    }
+}

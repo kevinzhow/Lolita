@@ -1,18 +1,89 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>#ShotTitle</title>
-  </head>
-  <body>
-    <div class="shot-desc">
-      #ShotDescription
-    </div>
-    <div class="shot-seprator">
-      <img src="" alt="" />
-    </div>
-    <div class="shot-comments">
-      #ShotComments
-    </div>
-  </body>
+    <head>
+        <meta charset="utf-8">
+            <title>#ShotTitle</title>
+            
+            <style media="screen">
+                body {
+                    padding-left: 15px;
+                    padding-right: 15px;
+                    margin: 0;
+                }
+            
+            .shot-seprator {
+                text-align: center;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+            
+            .shot-seprator img{
+                width: 25px;
+                height: 11px;
+            }
+            
+            .shot-desc {
+                font-family: Avenir;
+                font-size: 14px;
+            }
+            
+            p {
+                margin-top: 0;
+            }
+            
+            a {
+                color:#444;
+            }
+            
+            .shot-comment {
+                font-family: Avenir;
+                font-size: 14px;
+                display: flex;
+                flex-flow: row;
+                margin-bottom: 20px;
+            }
+            
+            .shot-user-name {
+                font-weight: 500;
+                font-size: 14px;
+                margin-bottom: 5px;
+            }
+            
+            .shot-avatar {
+                width: 46px;
+                height: 46px;
+                min-width: 46px;
+            }
+            
+            .shot-avatar img {
+                width: 100%;
+                height: auto;
+                border-radius: 100px;
+            }
+            
+            .shot-commnet-time {
+                font-size: 9px;
+                color:#878787;
+            }
+            
+            .shot-comment-content {
+                color: #535353;
+            }
+            
+            .shot-comment-container {
+                margin-left: 15px;
+            }
+            </style>
+            </head>
+    <body>
+        <div class="shot-desc">
+            #ShotDescription
+        </div>
+        <div class="shot-seprator">
+            <img src="Infinity_black.png" alt="" />
+        </div>
+        <div class="shot-comments">
+            #ShotComments
+        </div>
+    </body>
 </html>

@@ -181,7 +181,6 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
             cell.state = .Detail
             cell.layoutIfNeeded()
             
-            
         }, completion: nil)
     }
     

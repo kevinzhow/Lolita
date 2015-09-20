@@ -15,6 +15,11 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oqg-h0-Usg">
                         <rect key="frame" x="15" y="8" width="369" height="552"/>
                         <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8f9-Hl-bFu">
+                                <rect key="frame" x="0.0" y="0.0" width="369" height="552"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Jb-S1-Du1">
                                 <rect key="frame" x="0.0" y="268" width="369" height="55"/>
                                 <subviews>
@@ -74,22 +79,17 @@
                                     <constraint firstItem="3DE-aW-RcO" firstAttribute="leading" secondItem="2Jb-S1-Du1" secondAttribute="leading" constant="15" id="wFs-XH-Hrz"/>
                                 </constraints>
                             </view>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8f9-Hl-bFu">
-                                <rect key="frame" x="0.0" y="323" width="369" height="229"/>
-                                <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </webView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E8H-U5-5uK">
                                 <rect key="frame" x="0.0" y="552" width="369" height="50"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dP2-Iu-BOl">
                                         <rect key="frame" x="0.0" y="0.0" width="369" height="50"/>
                                         <animations/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
                                 <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="dP2-Iu-BOl" firstAttribute="top" secondItem="E8H-U5-5uK" secondAttribute="top" id="1nA-dV-3cS"/>
                                     <constraint firstItem="dP2-Iu-BOl" firstAttribute="leading" secondItem="E8H-U5-5uK" secondAttribute="leading" id="1rU-dT-3dD"/>
@@ -121,6 +121,7 @@
                             <constraint firstItem="8f9-Hl-bFu" firstAttribute="top" secondItem="2Jb-S1-Du1" secondAttribute="bottom" priority="750" id="Y7S-R5-gh1"/>
                             <constraint firstItem="8f9-Hl-bFu" firstAttribute="leading" secondItem="Oqg-h0-Usg" secondAttribute="leading" id="aCk-lf-JZP"/>
                             <constraint firstAttribute="bottom" secondItem="E8H-U5-5uK" secondAttribute="bottom" constant="-50" id="caM-T4-76d"/>
+                            <constraint firstItem="8f9-Hl-bFu" firstAttribute="top" secondItem="Oqg-h0-Usg" secondAttribute="top" id="qEP-Ns-Rr6"/>
                             <constraint firstAttribute="bottom" secondItem="2Jb-S1-Du1" secondAttribute="bottom" id="qsa-tb-suS"/>
                             <constraint firstItem="HD5-OZ-Duf" firstAttribute="top" secondItem="Oqg-h0-Usg" secondAttribute="top" id="r5D-wk-iVk"/>
                             <constraint firstItem="E8H-U5-5uK" firstAttribute="leading" secondItem="Oqg-h0-Usg" secondAttribute="leading" id="yiA-i0-OVm"/>
@@ -129,6 +130,7 @@
                             <mask key="constraints">
                                 <exclude reference="OeH-Ur-6Ur"/>
                                 <exclude reference="qsa-tb-suS"/>
+                                <exclude reference="Y7S-R5-gh1"/>
                             </mask>
                         </variation>
                     </view>

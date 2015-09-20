@@ -10,6 +10,16 @@ import Foundation
 
 let dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
 
+struct DribbbleComment {
+    let id: Int
+    let body: String
+    let likes_count: Int
+    let likes_url: String
+    let created_at: NSDate
+    let updated_at: NSDate
+    let user: DribbbleUser
+}
+
 struct DribbbleShot {
     let id: Int
     let title: String
@@ -83,6 +93,28 @@ func dateFromString(dateString: AnyObject?) -> NSDate? {
     }
 }
 
+
+func commentFromInfo(info: JSONDictionary) -> DribbbleComment? {
+    
+    if let id = info["id"] as? Int,
+        body = info["body"] as? String,
+        likes_count = info["likes_count"] as? Int,
+        likes_url = info["likes_url"] as? String,
+        created_at = dateFromString(info["created_at"]),
+        updated_at = dateFromString(info["updated_at"]),
+        userInfo = info["user"] as? JSONDictionary,
+        user = userFromInfo(userInfo)
+    {
+        
+        return DribbbleComment(id: id, body: body, likes_count: likes_count, likes_url: likes_url, created_at: created_at, updated_at: updated_at, user: user)
+        
+    } else {
+        print("Comment Not Fit")
+        //        print(info)
+    }
+    
+    return nil
+}
 
 
 func shotFromInfo(info: JSONDictionary) -> DribbbleShot? {
