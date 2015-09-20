@@ -161,6 +161,7 @@
                 <outlet property="shotDescriptionLabel" destination="FLZ-yn-7q9" id="1yE-uW-lY9"/>
                 <outlet property="shotDetailFooter" destination="2Jb-S1-Du1" id="Z8M-xN-rYm"/>
                 <outlet property="shotDetailsWebView" destination="8f9-Hl-bFu" id="cwS-3C-2ti"/>
+                <outlet property="shotImageTop" destination="r5D-wk-iVk" id="pRz-W2-xA3"/>
                 <outlet property="shotImageView" destination="HD5-OZ-Duf" id="Etn-IU-snK"/>
                 <outlet property="shotTimeLabel" destination="90S-4d-7h3" id="hwX-hr-jm8"/>
             </connections>

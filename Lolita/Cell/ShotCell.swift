@@ -27,8 +27,12 @@ class ShotCell: UICollectionViewCell {
         }
     }
     
+    var lastOffsetY: CGFloat = 0
+    
     @IBOutlet weak var shotDetailsWebView: UIWebView!
     
+    
+    @IBOutlet weak var shotImageTop: NSLayoutConstraint!
     
     @IBOutlet weak var shotDetailFooter: UIView!
     
@@ -64,6 +68,8 @@ class ShotCell: UICollectionViewCell {
     
     var blurView : UIVisualEffectView?
     
+    var scrollUp = false
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -73,8 +79,12 @@ class ShotCell: UICollectionViewCell {
         shotContainerView.layer.masksToBounds = true
         shotImageView.clipsToBounds = true
         
-        shotDetailsWebView.scrollView.contentInset = UIEdgeInsets(top: 320, left: 0, bottom: 50, right: 0)
+        shotDetailsWebView.scrollView.contentInset = UIEdgeInsets(top: 340, left: 0, bottom: 20, right: 0)
         shotDetailsWebView.userInteractionEnabled = false
+        shotDetailsWebView.scrollView.delegate = self
+        shotDetailsWebView.backgroundColor = UIColor.clearColor()
+        shotDetailsWebView.scrollView.backgroundColor = UIColor.clearColor()
+        shotDetailsWebView.opaque = false
         blurView = UIVisualEffectView(effect: darkBlur)
         // Initialization code
     }
@@ -116,7 +126,7 @@ class ShotCell: UICollectionViewCell {
                                 
                                 newContent = newContent.stringByReplacingOccurrencesOfString("#ShotCommentCreatedAt", withString: comment.created_at.timeAgoSinceNow())
                                 
-                                print(newContent)
+//                                print(newContent)
                                 
                                 commentsContent += newContent as String
                             }
@@ -220,7 +230,16 @@ class ShotCell: UICollectionViewCell {
         
         layer.addAnimation(transformAnim,
             forKey: "transform")
+    }
+    
+    func handleCardChange(to: Double) {
+        let layer = shotContainerView.layer
         
+        var rotationAndPerspectiveTransform = CATransform3DIdentity
+        rotationAndPerspectiveTransform.m34 = 1.0 / -500
+        rotationAndPerspectiveTransform = CATransform3DRotate(rotationAndPerspectiveTransform, CGFloat(to * M_PI / 180.0), 1.0, 0.0, 0.0)
+        
+        layer.transform = rotationAndPerspectiveTransform
     }
 
 }
