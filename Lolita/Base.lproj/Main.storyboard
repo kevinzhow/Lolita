@@ -112,15 +112,19 @@
                                     <constraint firstItem="qn5-MO-I2C" firstAttribute="centerX" secondItem="utc-Ac-Wg4" secondAttribute="centerX" id="KQu-td-jQO"/>
                                     <constraint firstItem="yoA-hp-116" firstAttribute="leading" secondItem="KkJ-Bt-P55" secondAttribute="trailing" id="PXv-2C-X2J"/>
                                     <constraint firstItem="qn5-MO-I2C" firstAttribute="centerY" secondItem="utc-Ac-Wg4" secondAttribute="centerY" id="U3r-Mo-je6"/>
+                                    <constraint firstItem="fSY-JA-sAT" firstAttribute="top" secondItem="utc-Ac-Wg4" secondAttribute="top" constant="11" id="VPd-s9-1DH"/>
                                     <constraint firstAttribute="trailing" secondItem="yoA-hp-116" secondAttribute="trailing" constant="8" id="cVU-rL-l7A"/>
                                     <constraint firstItem="yoA-hp-116" firstAttribute="centerY" secondItem="utc-Ac-Wg4" secondAttribute="centerY" id="jeg-0x-6M8"/>
                                     <constraint firstItem="fSY-JA-sAT" firstAttribute="centerY" secondItem="utc-Ac-Wg4" secondAttribute="centerY" id="oi6-VP-21d"/>
+                                    <constraint firstItem="yoA-hp-116" firstAttribute="centerY" secondItem="fSY-JA-sAT" secondAttribute="centerY" id="s9G-Tn-XCM"/>
                                     <constraint firstAttribute="bottom" secondItem="KkJ-Bt-P55" secondAttribute="bottom" id="yDP-jm-uoH"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="oi6-VP-21d"/>
                                         <exclude reference="7lB-1Q-Szn"/>
                                         <exclude reference="PXv-2C-X2J"/>
+                                        <exclude reference="jeg-0x-6M8"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -161,6 +165,7 @@
                         <outlet property="labelImage" destination="1Q2-mn-N3V" id="HYQ-yg-Q2p"/>
                         <outlet property="logoImage" destination="L69-C1-XBx" id="Prx-mF-fuf"/>
                         <outlet property="logoImageCenterY" destination="AC0-TQ-Zea" id="eB4-v3-cF3"/>
+                        <outlet property="menuButtomTop" destination="VPd-s9-1DH" id="wIw-ay-f6b"/>
                         <outlet property="menuButton" destination="fSY-JA-sAT" id="3Xu-fs-Obr"/>
                         <outlet property="profileButton" destination="yoA-hp-116" id="EUI-5X-M5o"/>
                         <outlet property="signInButton" destination="B7J-WU-tRX" id="Ybw-S9-j08"/>

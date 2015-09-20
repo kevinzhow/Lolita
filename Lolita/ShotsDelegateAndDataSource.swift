@@ -140,6 +140,9 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
             if velocity.y < 0 || scrollUp {
                 scrollUp = true
                 topBarViewHeight.constant -= 1
+                if menuButtomTop.constant >= -2 {
+                    menuButtomTop.constant -= 0.5
+                }
             }
             
         }
@@ -151,6 +154,9 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
                 
                 if scrollView.contentOffset.y < 300 {
                     topBarViewHeight.constant += 1
+                    if menuButtomTop.constant <= 11 {
+                        menuButtomTop.constant += 0.5
+                    }
                 }
                 
             }

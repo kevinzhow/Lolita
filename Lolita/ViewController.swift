@@ -19,6 +19,8 @@ let ShotCollectionViewTopInset: CGFloat = 50
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var menuButtomTop: NSLayoutConstraint!
+    
     @IBOutlet weak var topBarViewHeight: NSLayoutConstraint!
     
     @IBOutlet weak var appLogoImage: UIImageView!
