@@ -11,6 +11,7 @@ import Kingfisher
 import OLImageView
 import Alamofire
 import DateTools
+import SVProgressHUD
 
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
@@ -108,21 +109,31 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         }
         
         handleTopBarView(scrollView)
-        
-        if scrollView.contentOffset.y > -40 {
-            if !blurEffectAdded {
-                blurEffectAdded = true
-                
-                if let blurView = blurView {
-                    blurView.frame = blurViewContainer.bounds
-                    blurViewContainer.addSubview(blurView)
-                }
+        handleTopViewBlurViewExisit(scrollView)
 
-            }
+    }
+    
+    func handleTopViewBlurViewExisit(scrollView: UIScrollView) {
+        if scrollView.contentOffset.y > -40 {
+            addBlurViewOnTopView()
         } else {
             if let blurView = blurView {
                 blurEffectAdded = false
                 blurView.removeFromSuperview()
+                blurView.alpha = 1.0
+            }
+            
+        }
+    }
+    
+    func addBlurViewOnTopView() {
+        if !blurEffectAdded {
+            blurEffectAdded = true
+            
+            if let blurView = blurView {
+
+                blurView.frame = blurViewContainer.bounds
+                blurViewContainer.addSubview(blurView)
             }
             
         }
@@ -132,6 +143,11 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         
 //        print("Scroll \(scrollView.contentOffset.y) \(scrollView.tag)")
 //        print("Header \(topBarViewHeight.constant)")
+        
+        if MenuOpen {
+            return
+        }
+        
         
         let velocity = scrollView.panGestureRecognizer.velocityInView(self.view)
         
@@ -238,11 +254,22 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         if loadingNewPage {
             return
         }
+        animateOnLogo()
         
         self.loadingNewPage = true
         let productCount = self.shots.count
         
         shotsByListType(DribbbleListType.Default, page: page) { (shots) -> Void in
+            
+            dispatch_async(dispatch_get_main_queue(),{
+                SVProgressHUD.dismiss()
+                
+                delay(0.5, work: { () -> Void in
+                    SVProgressHUD.setBackgroundColor(UIColor.whiteColor())
+                })
+            })
+            
+            
             if let shots = shots {
                 
                 self.shots.appendContentsOf(shots)

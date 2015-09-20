@@ -10,6 +10,7 @@ import UIKit
 import SafariServices
 import GCDWebServer
 import SwiftyUserDefaults
+import SVProgressHUD
 
 let DribbleMoveSelectedCellBack = "DribbleMoveSelectedCellBack"
 
@@ -17,7 +18,34 @@ let LolitaToTimeLineNotification = "LolitaToTimeLineNotification"
 
 let ShotCollectionViewTopInset: CGFloat = 50
 
+let LolitaMenuFullHeight: CGFloat = 340
+
+var MenuOpen = false
+
 class ViewController: UIViewController {
+    
+    enum LolitaSelectChannel: Int {
+        case Popular = 0
+        case Animated
+        case Debuts
+        case Teams
+        case Followed
+        
+        var HumanRead: String {
+            switch self {
+            case .Popular:
+                return "popular"
+            case .Teams:
+                return "teams"
+            case .Animated:
+                return "animated"
+            case .Debuts:
+                return "debuts"
+            case .Followed:
+                return "followed"
+            }
+        }
+    }
     
     @IBOutlet weak var menuButtomTop: NSLayoutConstraint!
     
@@ -45,6 +73,62 @@ class ViewController: UIViewController {
     
     @IBAction func toggleMenu(sender: AnyObject) {
         
+        if MenuOpen {
+            MenuOpen = false
+            
+            UIView.animateWithDuration(0.3, delay: 0.1, options: UIViewAnimationOptions.AllowUserInteraction, animations: {
+                
+                if let blurView = self.blurView {
+                    blurView.alpha = 0
+                }
+                
+            }, completion: nil)
+            
+            UIView.animateWithDuration(0.5,
+                delay: 0,
+                usingSpringWithDamping: 0.89,
+                initialSpringVelocity: 15,
+                options: UIViewAnimationOptions.AllowUserInteraction,
+                animations: { () -> Void in
+                    
+                    if let menuLastHeight = self.menuLastHeight {
+                        self.topBarViewHeight.constant = menuLastHeight
+                    }
+                    
+                    self.view.layoutIfNeeded()
+                    
+                    if let blurView = self.blurView {
+                        blurView.frame = self.blurViewContainer.bounds
+                    }
+                    
+             
+                }, completion: { finish in
+                    self.handleTopViewBlurViewExisit(self.shotsCollectionView!)
+            })
+        } else {
+            menuLastHeight = topBarView.frame.height
+            MenuOpen = true
+            self.addBlurViewOnTopView()
+            
+            UIView.animateWithDuration(0.5,
+                delay: 0,
+                usingSpringWithDamping: 0.89,
+                initialSpringVelocity: 15,
+                options: UIViewAnimationOptions.AllowUserInteraction,
+                animations: { () -> Void in
+                
+                    self.topBarViewHeight.constant = LolitaMenuFullHeight
+                    self.view.layoutIfNeeded()
+                    
+                    if let blurView = self.blurView {
+                        blurView.frame = self.blurViewContainer.bounds
+
+                    }
+                
+            }, completion: nil)
+        }
+        
+
     }
     
     @IBOutlet weak var profileButton: UIButton!
@@ -69,6 +153,10 @@ class ViewController: UIViewController {
     var selectedCell: ShotCell?
     
     var loadingNewPage = false
+    
+    var menuChannel: LolitaSelectChannel = .Popular
+    
+    var menuLastHeight: CGFloat?
     
     enum HomeState: Int {
         case Welcome = 0
@@ -159,6 +247,32 @@ class ViewController: UIViewController {
     
     override func prefersStatusBarHidden() -> Bool {
         return true
+    }
+    
+    func animateOnLogo() {
+        
+        dispatch_async(dispatch_get_main_queue(),{
+            SVProgressHUD.setBackgroundColor(UIColor.clearColor())
+            SVProgressHUD.show()
+        })
+        
+//        let animation = CABasicAnimation(keyPath: "transform")
+//        
+//        var tr = CATransform3DIdentity
+//        tr = CATransform3DTranslate(tr, appLogoImage.bounds.size.width/2, appLogoImage.bounds.size.height/2, 0)
+//        tr = CATransform3DScale(tr, 0.9, 0.9, 1)
+//        tr = CATransform3DTranslate(tr, -appLogoImage.bounds.size.width/2, -appLogoImage.bounds.size.height/2, 0)
+//        animation.toValue = NSValue(CATransform3D: tr)
+//        
+////        animation.fromValue = 1.0
+//        animation.duration = 0.8
+////        animation.toValue = 1.5
+//        animation.repeatCount = 10
+//        animation.autoreverses = true
+////        animation.fillMode = kCAFillModeForwards
+//        animation.removedOnCompletion = false
+//        
+//        appLogoImage.layer.addAnimation(animation, forKey: "transfrom.scale")
     }
 
 }
