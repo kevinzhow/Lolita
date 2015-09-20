@@ -42,6 +42,11 @@ extension ViewController {
             shotsCollectionView?.contentInset = UIEdgeInsets(top: ShotCollectionViewTopInset, left: 0, bottom: 30, right: 0)
             
             view.insertSubview(shotsCollectionView!, belowSubview: topBarView)
+            
+//            let tap = UITapGestureRecognizer(target: self, action: "userTapOnScrollView:")
+            
+//            shotsCollectionView?.addGestureRecognizer(tap)
+            
         }
         
         shotsByListType(DribbbleListType.Default, page: 1) { (shots) -> Void in

@@ -27,6 +27,8 @@ class ShotCell: UICollectionViewCell {
         }
     }
     
+    @IBOutlet weak var authorLabel: UILabel!
+    
     @IBOutlet weak var shotContainerTop: NSLayoutConstraint!
     @IBOutlet weak var shotContainerTrailing: NSLayoutConstraint!
     @IBOutlet weak var shotContainerBottom: NSLayoutConstraint!
@@ -43,6 +45,10 @@ class ShotCell: UICollectionViewCell {
     @IBOutlet weak var shotTimeLabel: UILabel!
     
     @IBOutlet weak var avatarImageView: UIImageView!
+    
+    var originFrame: CGRect?
+    
+    var windowFrame: CGRect?
     
     var shot: DribbbleShot?
     

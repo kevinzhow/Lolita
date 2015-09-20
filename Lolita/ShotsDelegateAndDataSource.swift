@@ -10,8 +10,15 @@ import UIKit
 import Kingfisher
 import OLImageView
 import Alamofire
+import DateTools
 
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    func userTapOnScrollView(gesture: UITapGestureRecognizer) {
+//        let tapPoint = gesture.locationInView(shotsCollectionView)
+        
+    }
+    
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ShotCell", forIndexPath: indexPath) as! ShotCell
@@ -32,8 +39,10 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
             
         }
         
-        cell.shotDescriptionLabel.text = "\(shot.title) by \(shot.user.username)"
-        cell.shotTimeLabel.text = shot.created_at.description
+        cell.shotDescriptionLabel.text = shot.title
+        
+        cell.authorLabel.text = "by \(shot.user.username)"
+        cell.shotTimeLabel.text = shot.created_at.timeAgoSinceNow()
         cell.avatarImageView.kf_setImageWithURL(NSURL(string:shot.user.avatar_url)!, placeholderImage: nil, optionsInfo: [.Options: KingfisherOptions.BackgroundDecode], completionHandler: { (image, error, cacheType, imageURL) -> () in
         })
         
@@ -149,13 +158,21 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
         let cell = collectionView.cellForItemAtIndexPath(indexPath) as! ShotCell
+        
         cell.removeFromSuperview()
         
+        cell.originFrame = cell.frame
         
-        let newFrame = CGRect(x: cell.frame.origin.x, y: cell.frame.origin.y + ShotCollectionViewTopInset, width: cell.frame.width, height: cell.frame.height)
+        let tapPointInView = shotsCollectionView?.convertPoint(CGPointMake(cell.frame.origin.x, cell.frame.origin.y), toView: view)
+        
+        let newFrame = CGRect(x: tapPointInView!.x, y: tapPointInView!.y, width: cell.frame.width, height: cell.frame.height)
         
         cell.frame = newFrame
+        
+        cell.windowFrame = newFrame
+        
         view.addSubview(cell)
         
         UIView.animateKeyframesWithDuration(0.5, delay: 0, options: UIViewKeyframeAnimationOptions.AllowUserInteraction, animations: {

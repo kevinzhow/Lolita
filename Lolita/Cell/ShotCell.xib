@@ -15,13 +15,6 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oqg-h0-Usg">
                         <rect key="frame" x="15" y="8" width="369" height="439"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HD5-OZ-Duf" customClass="OLImageView">
-                                <rect key="frame" x="0.0" y="0.0" width="369" height="268"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="268" id="kz2-JJ-b0m"/>
-                                </constraints>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Jb-S1-Du1">
                                 <rect key="frame" x="0.0" y="268" width="369" height="55"/>
                                 <subviews>
@@ -37,7 +30,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FLZ-yn-7q9">
                                         <rect key="frame" x="54" y="11" width="247" height="18"/>
                                         <animations/>
-                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="13"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -45,7 +38,7 @@
                                         <rect key="frame" x="274" y="31" width="27" height="15.5"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="11"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" white="0.41718749999999999" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MAv-KW-Vyj">
@@ -56,6 +49,13 @@
                                             <constraint firstAttribute="width" constant="38" id="ETr-bt-IIs"/>
                                         </constraints>
                                     </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kye-eH-KZB">
+                                        <rect key="frame" x="242" y="31" width="27" height="15.5"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="11"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -66,12 +66,21 @@
                                     <constraint firstItem="FLZ-yn-7q9" firstAttribute="top" secondItem="MAv-KW-Vyj" secondAttribute="top" constant="2" id="Auq-nk-Wkc"/>
                                     <constraint firstItem="90S-4d-7h3" firstAttribute="trailing" secondItem="FLZ-yn-7q9" secondAttribute="trailing" id="D2d-uC-YFy"/>
                                     <constraint firstItem="MAv-KW-Vyj" firstAttribute="leading" secondItem="FLZ-yn-7q9" secondAttribute="trailing" constant="15" id="HnZ-7E-VtB"/>
+                                    <constraint firstItem="Kye-eH-KZB" firstAttribute="centerY" secondItem="90S-4d-7h3" secondAttribute="centerY" id="I3m-EO-e3e"/>
+                                    <constraint firstItem="90S-4d-7h3" firstAttribute="leading" secondItem="Kye-eH-KZB" secondAttribute="trailing" constant="5" id="RjZ-kq-Quz"/>
                                     <constraint firstAttribute="height" constant="55" id="TDz-eM-fGm"/>
                                     <constraint firstAttribute="trailing" secondItem="MAv-KW-Vyj" secondAttribute="trailing" constant="15" id="aCY-om-QG2"/>
                                     <constraint firstItem="FLZ-yn-7q9" firstAttribute="leading" secondItem="3DE-aW-RcO" secondAttribute="trailing" constant="20" id="kDf-WA-svi"/>
                                     <constraint firstItem="3DE-aW-RcO" firstAttribute="leading" secondItem="2Jb-S1-Du1" secondAttribute="leading" constant="15" id="wFs-XH-Hrz"/>
                                 </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HD5-OZ-Duf" customClass="OLImageView">
+                                <rect key="frame" x="0.0" y="0.0" width="369" height="268"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="268" id="kz2-JJ-b0m"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -105,6 +114,7 @@
             </constraints>
             <size key="customSize" width="399" height="455"/>
             <connections>
+                <outlet property="authorLabel" destination="Kye-eH-KZB" id="q2L-RV-seS"/>
                 <outlet property="avatarImageView" destination="MAv-KW-Vyj" id="puu-kb-kBb"/>
                 <outlet property="likeButton" destination="3DE-aW-RcO" id="0lb-Io-eFl"/>
                 <outlet property="shotContainerBottom" destination="UYi-Rp-uUP" id="bIw-a8-Nxj"/>
