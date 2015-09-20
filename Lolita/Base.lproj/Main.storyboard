@@ -59,7 +59,7 @@
                                 <color key="textColor" white="0.2603178879310345" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="utc-Ac-Wg4">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="utc-Ac-Wg4">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="58"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KkJ-Bt-P55">
@@ -67,8 +67,63 @@
                                         <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="shi-WI-nDu">
+                                        <rect key="frame" x="25" y="50" width="87" height="47"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="25"/>
+                                        <state key="normal" title="popular">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="popular:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4WK-WI-f1N"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z4B-Qo-fzV">
+                                        <rect key="frame" x="25" y="93" width="105" height="47"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="25"/>
+                                        <state key="normal" title="animated">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="animated:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sr7-F3-Xca"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RTt-ej-CfJ">
+                                        <rect key="frame" x="25" y="140" width="78" height="47"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="25"/>
+                                        <state key="normal" title="debuts">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="debuts:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HdQ-gn-oBi"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ddc-1q-08g">
+                                        <rect key="frame" x="25" y="187" width="68" height="47"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="25"/>
+                                        <state key="normal" title="teams">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="teams:" destination="BYZ-38-t0r" eventType="touchUpInside" id="838-v9-25z"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c7C-l2-DbH">
+                                        <rect key="frame" x="25" y="234" width="97" height="47"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="25"/>
+                                        <state key="normal" title="followed">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="followed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mbw-ia-WVu"/>
+                                        </connections>
+                                    </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppLogo" translatesAutoresizingMaskIntoConstraints="NO" id="qn5-MO-I2C">
-                                        <rect key="frame" x="287.5" y="23.5" width="25" height="11"/>
+                                        <rect key="frame" x="287" y="23" width="25" height="11"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="11" id="0YA-Uy-3et"/>
@@ -103,26 +158,44 @@
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="RTt-ej-CfJ" firstAttribute="top" secondItem="z4B-Qo-fzV" secondAttribute="bottom" id="0gX-ZW-qQd"/>
+                                    <constraint firstItem="c7C-l2-DbH" firstAttribute="top" secondItem="ddc-1q-08g" secondAttribute="bottom" id="243-i7-QfZ"/>
+                                    <constraint firstItem="shi-WI-nDu" firstAttribute="leading" secondItem="utc-Ac-Wg4" secondAttribute="leading" constant="25" id="3OK-n4-JVu"/>
+                                    <constraint firstItem="shi-WI-nDu" firstAttribute="top" secondItem="z4B-Qo-fzV" secondAttribute="bottom" constant="50" id="7GJ-e0-NnR"/>
                                     <constraint firstItem="yoA-hp-116" firstAttribute="leading" secondItem="KkJ-Bt-P55" secondAttribute="trailing" id="7lB-1Q-Szn"/>
                                     <constraint firstItem="fSY-JA-sAT" firstAttribute="leading" secondItem="utc-Ac-Wg4" secondAttribute="leading" constant="8" id="8Xq-9X-nga"/>
                                     <constraint firstItem="KkJ-Bt-P55" firstAttribute="leading" secondItem="utc-Ac-Wg4" secondAttribute="leading" id="A5U-7V-wdz"/>
+                                    <constraint firstItem="RTt-ej-CfJ" firstAttribute="leading" secondItem="z4B-Qo-fzV" secondAttribute="leading" id="Doz-AS-zli"/>
                                     <constraint firstItem="KkJ-Bt-P55" firstAttribute="top" secondItem="utc-Ac-Wg4" secondAttribute="top" id="EZp-0G-NMp"/>
                                     <constraint firstAttribute="height" constant="58" id="IQj-Uf-gru"/>
                                     <constraint firstAttribute="trailing" secondItem="KkJ-Bt-P55" secondAttribute="trailing" id="K9Z-lk-Pbm"/>
                                     <constraint firstItem="qn5-MO-I2C" firstAttribute="centerX" secondItem="utc-Ac-Wg4" secondAttribute="centerX" id="KQu-td-jQO"/>
                                     <constraint firstItem="yoA-hp-116" firstAttribute="leading" secondItem="KkJ-Bt-P55" secondAttribute="trailing" id="PXv-2C-X2J"/>
                                     <constraint firstItem="qn5-MO-I2C" firstAttribute="centerY" secondItem="utc-Ac-Wg4" secondAttribute="centerY" id="U3r-Mo-je6"/>
+                                    <constraint firstItem="shi-WI-nDu" firstAttribute="leading" secondItem="fSY-JA-sAT" secondAttribute="trailing" constant="20" id="U67-Pa-XNZ"/>
                                     <constraint firstItem="fSY-JA-sAT" firstAttribute="top" secondItem="utc-Ac-Wg4" secondAttribute="top" constant="11" id="VPd-s9-1DH"/>
+                                    <constraint firstItem="shi-WI-nDu" firstAttribute="top" secondItem="utc-Ac-Wg4" secondAttribute="top" constant="50" id="VWD-6B-LMb"/>
+                                    <constraint firstItem="shi-WI-nDu" firstAttribute="top" secondItem="z4B-Qo-fzV" secondAttribute="bottom" constant="-90" id="X19-co-4h5"/>
                                     <constraint firstAttribute="trailing" secondItem="yoA-hp-116" secondAttribute="trailing" constant="8" id="cVU-rL-l7A"/>
+                                    <constraint firstItem="ddc-1q-08g" firstAttribute="top" secondItem="RTt-ej-CfJ" secondAttribute="bottom" id="hFP-Ay-p5S"/>
+                                    <constraint firstItem="z4B-Qo-fzV" firstAttribute="leading" secondItem="shi-WI-nDu" secondAttribute="leading" id="hWP-fD-NaA"/>
+                                    <constraint firstItem="shi-WI-nDu" firstAttribute="top" secondItem="z4B-Qo-fzV" secondAttribute="bottom" constant="-60" id="iOD-SC-TZz"/>
                                     <constraint firstItem="qn5-MO-I2C" firstAttribute="centerY" secondItem="fSY-JA-sAT" secondAttribute="centerY" id="iag-Ck-WcA"/>
                                     <constraint firstItem="yoA-hp-116" firstAttribute="centerY" secondItem="utc-Ac-Wg4" secondAttribute="centerY" id="jeg-0x-6M8"/>
+                                    <constraint firstItem="RTt-ej-CfJ" firstAttribute="top" secondItem="z4B-Qo-fzV" secondAttribute="bottom" id="jf6-oN-iA9"/>
+                                    <constraint firstItem="ddc-1q-08g" firstAttribute="leading" secondItem="RTt-ej-CfJ" secondAttribute="leading" id="l4X-IE-8Kg"/>
                                     <constraint firstItem="fSY-JA-sAT" firstAttribute="centerY" secondItem="utc-Ac-Wg4" secondAttribute="centerY" id="oi6-VP-21d"/>
+                                    <constraint firstItem="c7C-l2-DbH" firstAttribute="leading" secondItem="ddc-1q-08g" secondAttribute="leading" id="r2j-1n-giJ"/>
                                     <constraint firstItem="yoA-hp-116" firstAttribute="centerY" secondItem="fSY-JA-sAT" secondAttribute="centerY" id="s9G-Tn-XCM"/>
                                     <constraint firstAttribute="bottom" secondItem="KkJ-Bt-P55" secondAttribute="bottom" id="yDP-jm-uoH"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="oi6-VP-21d"/>
+                                        <exclude reference="7GJ-e0-NnR"/>
+                                        <exclude reference="U67-Pa-XNZ"/>
+                                        <exclude reference="iOD-SC-TZz"/>
+                                        <exclude reference="0gX-ZW-qQd"/>
                                         <exclude reference="U3r-Mo-je6"/>
                                         <exclude reference="7lB-1Q-Szn"/>
                                         <exclude reference="PXv-2C-X2J"/>
@@ -161,16 +234,21 @@
                     </view>
                     <navigationItem key="navigationItem" id="W0r-ZL-Mmj"/>
                     <connections>
+                        <outlet property="animatedButton" destination="z4B-Qo-fzV" id="zuL-6Z-TyY"/>
                         <outlet property="appLogoImage" destination="qn5-MO-I2C" id="ZzS-Cz-xzy"/>
                         <outlet property="blurViewContainer" destination="KkJ-Bt-P55" id="IuZ-0p-MGs"/>
+                        <outlet property="debutsButton" destination="RTt-ej-CfJ" id="5y1-e9-9td"/>
+                        <outlet property="followedButton" destination="c7C-l2-DbH" id="Fu0-SR-05I"/>
                         <outlet property="footerMessageLabel" destination="1gg-vS-SxJ" id="AcP-aE-mQY"/>
                         <outlet property="labelImage" destination="1Q2-mn-N3V" id="HYQ-yg-Q2p"/>
                         <outlet property="logoImage" destination="L69-C1-XBx" id="Prx-mF-fuf"/>
                         <outlet property="logoImageCenterY" destination="AC0-TQ-Zea" id="eB4-v3-cF3"/>
                         <outlet property="menuButtomTop" destination="VPd-s9-1DH" id="wIw-ay-f6b"/>
                         <outlet property="menuButton" destination="fSY-JA-sAT" id="3Xu-fs-Obr"/>
+                        <outlet property="popularButton" destination="shi-WI-nDu" id="F3R-ce-qmq"/>
                         <outlet property="profileButton" destination="yoA-hp-116" id="EUI-5X-M5o"/>
                         <outlet property="signInButton" destination="B7J-WU-tRX" id="Ybw-S9-j08"/>
+                        <outlet property="teamsButton" destination="ddc-1q-08g" id="0EF-o9-cL1"/>
                         <outlet property="topBarView" destination="utc-Ac-Wg4" id="KmE-En-sCF"/>
                         <outlet property="topBarViewHeight" destination="IQj-Uf-gru" id="m8i-zl-81o"/>
                     </connections>

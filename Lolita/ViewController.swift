@@ -18,12 +18,19 @@ let LolitaToTimeLineNotification = "LolitaToTimeLineNotification"
 
 let ShotCollectionViewTopInset: CGFloat = 50
 
-let LolitaMenuFullHeight: CGFloat = 340
+let LolitaMenuFullHeight: CGFloat = 300
 
 var MenuOpen = false
 
+let LolitaColor = UIColor(red: 80.0/255.0, green: 227.0/255.0, blue: 194.0/255.0, alpha: 1.0)
+
 class ViewController: UIViewController {
+    @IBOutlet weak var popularButton: UIButton!
+    @IBOutlet weak var animatedButton: UIButton!
+    @IBOutlet weak var debutsButton: UIButton!
     
+    @IBOutlet weak var followedButton: UIButton!
+    @IBOutlet weak var teamsButton: UIButton!
     enum LolitaSelectChannel: Int {
         case Popular = 0
         case Animated
@@ -155,7 +162,32 @@ class ViewController: UIViewController {
     
     var loadingNewPage = false
     
-    var menuChannel: LolitaSelectChannel = .Popular
+    var menuChannel: LolitaSelectChannel? {
+        didSet {
+            resetMenu()
+            
+            switch self.menuChannel! {
+            case .Popular:
+                self.popularButton.setTitleColor(LolitaColor, forState: UIControlState.Normal)
+            case .Teams:
+                self.teamsButton.setTitleColor(LolitaColor, forState: UIControlState.Normal)
+            case .Animated:
+                self.animatedButton.setTitleColor(LolitaColor, forState: UIControlState.Normal)
+            case .Followed:
+                self.followedButton.setTitleColor(LolitaColor, forState: UIControlState.Normal)
+            case .Debuts:
+                self.debutsButton.setTitleColor(LolitaColor, forState: UIControlState.Normal)
+            }
+        }
+    }
+    
+    func resetMenu() {
+        self.popularButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        self.teamsButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        self.animatedButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        self.followedButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        self.debutsButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+    }
     
     var menuLastHeight: CGFloat?
     
@@ -217,6 +249,7 @@ class ViewController: UIViewController {
         if let _ = Defaults[.dribbbleToken] {
 //            print(token)
             self.state = .Timeline
+            menuChannel = .Popular
         } else {
             self.state = .Welcome
         }
@@ -250,6 +283,32 @@ class ViewController: UIViewController {
         return true
     }
     
+    
+    @IBAction func popular(sender: AnyObject) {
+            toggleMenu(self)
+            menuChannel = .Popular
+    }
+    
+    @IBAction func animated(sender: AnyObject) {
+            toggleMenu(self)
+            menuChannel = .Animated
+    }
+    
+    @IBAction func debuts(sender: AnyObject) {
+            toggleMenu(self)
+            menuChannel = .Debuts
+    }
+    
+    @IBAction func teams(sender: AnyObject) {
+            toggleMenu(self)
+            menuChannel = .Teams
+    }
+    
+    @IBAction func followed(sender: AnyObject) {
+            toggleMenu(self)
+            menuChannel = .Followed
+        
+    }
     func animateOnLogo() {
         
         dispatch_async(dispatch_get_main_queue(),{
