@@ -286,7 +286,8 @@ class ViewController: UIViewController {
     }
     
     func lolitaBecomeTimeline() {
-        becomeTimeline()
+        menuChannel = .Popular
+        self.state = .Timeline
     }
     
     override func viewDidLayoutSubviews() {
