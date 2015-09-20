@@ -9,6 +9,8 @@
 import UIKit
 import OLImageView
 
+let NSBundleURL = NSURL(fileURLWithPath: NSBundle.mainBundle().bundlePath)
+
 class ShotCell: UICollectionViewCell {
     
     enum ShotCellState: Int {
@@ -106,7 +108,7 @@ class ShotCell: UICollectionViewCell {
                     contents = contents.stringByReplacingOccurrencesOfString("#ShotDescription", withString: "")
                 }
                 
-                shotDetailsWebView.loadHTMLString(contents as String, baseURL: nil)
+                shotDetailsWebView.loadHTMLString(contents as String, baseURL: NSBundleURL)
                 
                 commentsByShotID(shot.id, complete: { (comments) -> Void in
                     
@@ -134,9 +136,9 @@ class ShotCell: UICollectionViewCell {
                                 commentsContent += newContent as String
                             }
                             
-                            contents = contents.stringByReplacingOccurrencesOfString("#ShotComments", withString: commentsContent)
+                            contents = contents.stringByReplacingOccurrencesOfString("<span class='hidden'>#ShotComments</span>", withString: commentsContent)
                             
-                            self.shotDetailsWebView.loadHTMLString(contents as String, baseURL: NSURL(fileURLWithPath: NSBundle.mainBundle().bundlePath))
+                            self.shotDetailsWebView.loadHTMLString(contents as String, baseURL: NSBundleURL)
                             
                             self.pageLoaded = true
                             
