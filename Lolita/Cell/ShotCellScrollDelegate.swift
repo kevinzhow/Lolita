@@ -53,6 +53,7 @@ extension ShotCell : UIScrollViewDelegate {
                     
                     if bottomBounceValue > 12 {
                         NSNotificationCenter.defaultCenter().postNotificationName(DribbleMoveSelectedCellBack, object: nil)
+                        self.pageLoaded = false
                     }
                     
                 } else {

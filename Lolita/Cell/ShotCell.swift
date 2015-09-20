@@ -165,7 +165,7 @@ class ShotCell: UICollectionViewCell {
         
         bottomBar.hidden = true
         
-        handleCardChangeAnimation(-12)
+        handleCardChangeAnimation(-10)
 
         UIView.animateWithDuration(0.5) { () -> Void in
             self.shotImageTop.constant = 0
@@ -238,14 +238,16 @@ class ShotCell: UICollectionViewCell {
         transformAnim.keyTimes = [0, 0.33, 0.5, 1]
         transformAnim.duration = 0.8
         transformAnim.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-        transformAnim.removedOnCompletion = false
+        transformAnim.removedOnCompletion = true
         transformAnim.fillMode = kCAFillModeForwards
         
         layer.addAnimation(transformAnim,
             forKey: "transform")
+        
     }
     
     func handleCardChange(to: Double) {
+        
         let layer = shotContainerView.layer
         
         var rotationAndPerspectiveTransform = CATransform3DIdentity
