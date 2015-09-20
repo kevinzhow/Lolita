@@ -108,7 +108,12 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
             loadPage(currentPage + 1)
         }
         
+        if MenuOpen {
+            return
+        }
+        
         handleTopBarView(scrollView)
+        
         handleTopViewBlurViewExisit(scrollView)
 
     }
@@ -118,6 +123,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
             addBlurViewOnTopView()
         } else {
             if let blurView = blurView {
+
                 blurEffectAdded = false
                 blurView.removeFromSuperview()
                 blurView.alpha = 1.0
@@ -143,11 +149,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         
 //        print("Scroll \(scrollView.contentOffset.y) \(scrollView.tag)")
 //        print("Header \(topBarViewHeight.constant)")
-        
-        if MenuOpen {
-            return
-        }
-        
+
         
         let velocity = scrollView.panGestureRecognizer.velocityInView(self.view)
         

@@ -77,11 +77,12 @@ class ViewController: UIViewController {
             MenuOpen = false
             
             UIView.animateWithDuration(0.3, delay: 0.1, options: UIViewAnimationOptions.AllowUserInteraction, animations: {
-                
-                if let blurView = self.blurView {
-                    blurView.alpha = 0
+                if self.shotsCollectionView!.contentOffset.y <= -40 {
+                    if let blurView = self.blurView {
+                        blurView.alpha = 0
+                    }
                 }
-                
+
             }, completion: nil)
             
             UIView.animateWithDuration(0.5,
