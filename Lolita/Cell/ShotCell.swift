@@ -10,6 +10,7 @@ import UIKit
 import OLImageView
 
 let NSBundleURL = NSURL(fileURLWithPath: NSBundle.mainBundle().bundlePath)
+let ShotMaxDegree: CGFloat = 8
 
 class ShotCell: UICollectionViewCell {
     
@@ -78,7 +79,7 @@ class ShotCell: UICollectionViewCell {
         super.awakeFromNib()
         
         bottomBar.hidden = true
-        shotImageView.runLoopMode = NSRunLoopCommonModes
+//        shotImageView.runLoopMode = NSRunLoopCommonModes
         shotContainerView.layer.cornerRadius = 8
         shotContainerView.layer.masksToBounds = true
         shotImageView.clipsToBounds = true
@@ -90,6 +91,9 @@ class ShotCell: UICollectionViewCell {
         shotDetailsWebView.scrollView.backgroundColor = UIColor.clearColor()
         shotDetailsWebView.opaque = false
         blurView = UIVisualEffectView(effect: darkBlur)
+        
+        avatarImageView.layer.cornerRadius = avatarImageView.frame.size.height/2.0
+        avatarImageView.layer.masksToBounds = true
         
         // Initialization code
     }
@@ -167,7 +171,7 @@ class ShotCell: UICollectionViewCell {
         
         bottomBar.hidden = true
         
-        handleCardChangeAnimation(-10)
+        handleCardChangeAnimation(-Double(ShotMaxDegree))
 
         UIView.animateWithDuration(0.5) { () -> Void in
             self.shotImageTop.constant = 0

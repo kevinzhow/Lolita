@@ -28,15 +28,15 @@ extension ShotCell : UIScrollViewDelegate {
             
             print(bottomBounceValue)
             
-            if bottomBounceValue <= 10 && bottomBounceValue >= 0 {
+            if bottomBounceValue <= ShotMaxDegree && bottomBounceValue >= 0 {
                 self.handleCardChange(Double(bottomBounceValue))
             } else {
                 
-                if bottomBounceValue > 10 {
+                if bottomBounceValue > ShotMaxDegree {
                     
-                    handleCardChange(10)
+                    handleCardChange(Double(ShotMaxDegree))
                     
-                    if bottomBounceValue > 12 {
+                    if bottomBounceValue > ShotMaxDegree {
                         NSNotificationCenter.defaultCenter().postNotificationName(DribbleMoveSelectedCellBack, object: true)
                         self.pageLoaded = false
                     }
@@ -64,19 +64,19 @@ extension ShotCell : UIScrollViewDelegate {
         if scrollView.contentOffset.y + scrollView.frame.height > scrollView.contentSize.height {
             
             var bottomBounceValue = (scrollView.contentOffset.y + scrollView.frame.height) - scrollView.contentSize.height - 20
-            bottomBounceValue = bottomBounceValue/10.0
+            bottomBounceValue = bottomBounceValue/15.0
             
             print(bottomBounceValue)
             
-            if bottomBounceValue <= 10 && bottomBounceValue >= 0 {
+            if bottomBounceValue <= ShotMaxDegree && bottomBounceValue >= 0 {
                 self.handleCardChange(Double(-bottomBounceValue))
             } else {
                 
-                if bottomBounceValue > 10 {
+                if bottomBounceValue > ShotMaxDegree {
                     
-                    handleCardChange(-10)
+                    handleCardChange(-Double(ShotMaxDegree))
                     
-                    if bottomBounceValue > 12 {
+                    if bottomBounceValue > ShotMaxDegree + 2 {
                         NSNotificationCenter.defaultCenter().postNotificationName(DribbleMoveSelectedCellBack, object: false)
                         self.pageLoaded = false
                     }

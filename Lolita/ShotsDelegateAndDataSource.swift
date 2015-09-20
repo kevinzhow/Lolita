@@ -204,9 +204,9 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
             selectedCell.frame = newFrame
             
             if top {
-                selectedCell.handleCardChange(10)
+                selectedCell.handleCardChange(Double(ShotMaxDegree))
             } else {
-                selectedCell.handleCardChange(-10)
+                selectedCell.handleCardChange(-Double(ShotMaxDegree))
             }
 
             

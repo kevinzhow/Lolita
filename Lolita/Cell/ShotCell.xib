@@ -33,7 +33,7 @@
                                         <state key="normal" image="like"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FLZ-yn-7q9">
-                                        <rect key="frame" x="54" y="11" width="247" height="18"/>
+                                        <rect key="frame" x="269" y="11" width="32" height="18"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="13"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -69,13 +69,13 @@
                                     <constraint firstItem="MAv-KW-Vyj" firstAttribute="centerY" secondItem="2Jb-S1-Du1" secondAttribute="centerY" id="3VR-yL-WVZ"/>
                                     <constraint firstItem="3DE-aW-RcO" firstAttribute="centerY" secondItem="2Jb-S1-Du1" secondAttribute="centerY" id="4aA-js-nbD"/>
                                     <constraint firstItem="FLZ-yn-7q9" firstAttribute="top" secondItem="MAv-KW-Vyj" secondAttribute="top" constant="2" id="Auq-nk-Wkc"/>
-                                    <constraint firstItem="90S-4d-7h3" firstAttribute="trailing" secondItem="FLZ-yn-7q9" secondAttribute="trailing" id="D2d-uC-YFy"/>
+                                    <constraint firstItem="90S-4d-7h3" firstAttribute="trailing" secondItem="FLZ-yn-7q9" secondAttribute="trailing" priority="750" id="D2d-uC-YFy"/>
                                     <constraint firstItem="MAv-KW-Vyj" firstAttribute="leading" secondItem="FLZ-yn-7q9" secondAttribute="trailing" constant="15" id="HnZ-7E-VtB"/>
                                     <constraint firstItem="Kye-eH-KZB" firstAttribute="centerY" secondItem="90S-4d-7h3" secondAttribute="centerY" id="I3m-EO-e3e"/>
                                     <constraint firstItem="90S-4d-7h3" firstAttribute="leading" secondItem="Kye-eH-KZB" secondAttribute="trailing" constant="5" id="RjZ-kq-Quz"/>
                                     <constraint firstAttribute="height" constant="55" id="TDz-eM-fGm"/>
                                     <constraint firstAttribute="trailing" secondItem="MAv-KW-Vyj" secondAttribute="trailing" constant="15" id="aCY-om-QG2"/>
-                                    <constraint firstItem="FLZ-yn-7q9" firstAttribute="leading" secondItem="3DE-aW-RcO" secondAttribute="trailing" constant="20" id="kDf-WA-svi"/>
+                                    <constraint firstItem="FLZ-yn-7q9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3DE-aW-RcO" secondAttribute="trailing" constant="20" id="kDf-WA-svi"/>
                                     <constraint firstItem="3DE-aW-RcO" firstAttribute="leading" secondItem="2Jb-S1-Du1" secondAttribute="leading" constant="15" id="wFs-XH-Hrz"/>
                                 </constraints>
                             </view>
