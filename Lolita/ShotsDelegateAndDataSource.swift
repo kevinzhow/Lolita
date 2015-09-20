@@ -101,6 +101,12 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         
 //        print(scrollView.contentOffset.y)
         
+        let distanceFromBottom = scrollView.contentSize.height - scrollView.contentOffset.y
+        print(distanceFromBottom)
+        if distanceFromBottom < view.frame.height*5 {
+            loadPage(currentPage + 1)
+        }
+        
         handleTopBarView(scrollView)
         
         if scrollView.contentOffset.y > -40 {
@@ -223,6 +229,11 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func loadPage(page: Int) {
         
+        if loadingNewPage {
+            return
+        }
+        
+        self.loadingNewPage = true
         let productCount = self.shots.count
         
         shotsByListType(DribbbleListType.Default, page: page) { (shots) -> Void in
@@ -251,13 +262,16 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
                             print(indexPaths.count)
                             
                             self.shotsCollectionView?.insertItemsAtIndexPaths(indexPaths)
-                            
+                            self.loadingNewPage = false
+                            self.currentPage += 1
                         })
+                    } else {
+                        self.loadingNewPage = false
                     }
                     
-//                    self.shotsCollectionView?.reloadSections(NSIndexSet(index: 0))
-                    
                 })
+            } else {
+                self.loadingNewPage = false
             }
         }
     }

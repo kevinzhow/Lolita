@@ -45,9 +45,11 @@ class ViewController: UIViewController {
     
     var scrollUp = false
     
-    var currentPage = 1
+    var currentPage = 0
     
     var selectedCell: ShotCell?
+    
+    var loadingNewPage = false
     
     enum HomeState: Int {
         case Welcome = 0
