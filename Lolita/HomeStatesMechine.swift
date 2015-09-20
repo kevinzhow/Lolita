@@ -49,17 +49,6 @@ extension ViewController {
             
         }
         
-        shotsByListType(DribbbleListType.Default, page: currentPage) { (shots) -> Void in
-            if let shots = shots {
-                
-                self.shots.appendContentsOf(shots)
-
-                dispatch_async(dispatch_get_main_queue(),{
-                    
-                    self.shotsCollectionView?.reloadSections(NSIndexSet(index: 0))
-                    
-                })
-            }
-        }
+        loadPage(currentPage)
     }
 }
