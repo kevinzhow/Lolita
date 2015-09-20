@@ -19,11 +19,11 @@ extension ShotCell : UIScrollViewDelegate {
         
         //For Bounce
         
-        if scrollView.contentOffset.y < -340{
+        if scrollView.contentOffset.y < -ShotWebViewTopInset{
             
             print(scrollView.contentOffset.y)
             
-            var bottomBounceValue = -scrollView.contentOffset.y - 340
+            var bottomBounceValue = -scrollView.contentOffset.y - ShotWebViewTopInset
             bottomBounceValue = bottomBounceValue/10.0
             
 //            print(bottomBounceValue)
@@ -63,7 +63,7 @@ extension ShotCell : UIScrollViewDelegate {
         
         if scrollView.contentOffset.y + scrollView.frame.height > scrollView.contentSize.height {
             
-            var bottomBounceValue = (scrollView.contentOffset.y + scrollView.frame.height) - scrollView.contentSize.height - 20
+            var bottomBounceValue = (scrollView.contentOffset.y + scrollView.frame.height) - scrollView.contentSize.height - ShotWebViewBottomInset
             bottomBounceValue = bottomBounceValue/13.0
             
 //            print(bottomBounceValue)
@@ -91,7 +91,7 @@ extension ShotCell : UIScrollViewDelegate {
         }
         //
         
-        let newOffset = scrollView.contentOffset.y + 340
+        let newOffset = scrollView.contentOffset.y + ShotWebViewTopInset
         
         if newOffset <= 270 {
             shotImageTop.constant = -newOffset

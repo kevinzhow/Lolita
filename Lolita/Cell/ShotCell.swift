@@ -11,6 +11,8 @@ import OLImageView
 
 let NSBundleURL = NSURL(fileURLWithPath: NSBundle.mainBundle().bundlePath)
 let ShotMaxDegree: CGFloat = 8
+let ShotWebViewBottomInset: CGFloat = 50
+let ShotWebViewTopInset: CGFloat = 340
 
 class ShotCell: UICollectionViewCell {
     
@@ -84,7 +86,7 @@ class ShotCell: UICollectionViewCell {
         shotContainerView.layer.masksToBounds = true
         shotImageView.clipsToBounds = true
         
-        shotDetailsWebView.scrollView.contentInset = UIEdgeInsets(top: 340, left: 0, bottom: 50, right: 0)
+        shotDetailsWebView.scrollView.contentInset = UIEdgeInsets(top: ShotWebViewTopInset, left: 0, bottom: ShotWebViewBottomInset, right: 0)
         shotDetailsWebView.userInteractionEnabled = false
         shotDetailsWebView.scrollView.delegate = self
         shotDetailsWebView.backgroundColor = UIColor.clearColor()
