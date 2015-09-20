@@ -220,4 +220,45 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         }
     }
     
+    
+    func loadPage(page: Int) {
+        
+        let productCount = self.shots.count
+        
+        shotsByListType(DribbbleListType.Default, page: page) { (shots) -> Void in
+            if let shots = shots {
+                
+                self.shots.appendContentsOf(shots)
+                
+                dispatch_async(dispatch_get_main_queue(),{
+                    
+                    if self.shots.count > productCount {
+                        dispatch_async(dispatch_get_main_queue(), {
+                            
+                            let totalInsert = self.shots.count - productCount
+                            
+                            var indexPaths = [NSIndexPath]()
+                            
+                            for i in 0...(totalInsert-1) {
+                                
+                                let row = productCount + i
+                                
+                                let indexPath = NSIndexPath(forRow: row, inSection: 0)
+                                
+                                indexPaths.append(indexPath)
+                            }
+                            
+                            print(indexPaths.count)
+                            
+                            self.shotsCollectionView?.insertItemsAtIndexPaths(indexPaths)
+                            
+                        })
+                    }
+                    
+//                    self.shotsCollectionView?.reloadSections(NSIndexSet(index: 0))
+                    
+                })
+            }
+        }
+    }
 }

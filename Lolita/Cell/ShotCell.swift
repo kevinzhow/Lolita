@@ -95,6 +95,7 @@ class ShotCell: UICollectionViewCell {
         avatarImageView.layer.cornerRadius = avatarImageView.frame.size.height/2.0
         avatarImageView.layer.masksToBounds = true
         
+        shotDetailFooter.userInteractionEnabled = false
         // Initialization code
     }
     

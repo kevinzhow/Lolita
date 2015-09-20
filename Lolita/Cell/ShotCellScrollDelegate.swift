@@ -26,7 +26,7 @@ extension ShotCell : UIScrollViewDelegate {
             var bottomBounceValue = -scrollView.contentOffset.y - 340
             bottomBounceValue = bottomBounceValue/10.0
             
-            print(bottomBounceValue)
+//            print(bottomBounceValue)
             
             if bottomBounceValue <= ShotMaxDegree && bottomBounceValue >= 0 {
                 self.handleCardChange(Double(bottomBounceValue))
@@ -64,9 +64,9 @@ extension ShotCell : UIScrollViewDelegate {
         if scrollView.contentOffset.y + scrollView.frame.height > scrollView.contentSize.height {
             
             var bottomBounceValue = (scrollView.contentOffset.y + scrollView.frame.height) - scrollView.contentSize.height - 20
-            bottomBounceValue = bottomBounceValue/15.0
+            bottomBounceValue = bottomBounceValue/13.0
             
-            print(bottomBounceValue)
+//            print(bottomBounceValue)
             
             if bottomBounceValue <= ShotMaxDegree && bottomBounceValue >= 0 {
                 self.handleCardChange(Double(-bottomBounceValue))
@@ -76,7 +76,8 @@ extension ShotCell : UIScrollViewDelegate {
                     
                     handleCardChange(-Double(ShotMaxDegree))
                     
-                    if bottomBounceValue > ShotMaxDegree + 2 {
+                    if bottomBounceValue > ShotMaxDegree + 2 && velocity.y > -100{
+
                         NSNotificationCenter.defaultCenter().postNotificationName(DribbleMoveSelectedCellBack, object: false)
                         self.pageLoaded = false
                     }
