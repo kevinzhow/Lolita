@@ -116,3 +116,31 @@ func likeByShotID(shotID: Int, complete: (likeID: Int?) -> Void) {
         
     }
 }
+
+func unLikeByShotID(shotID: Int, complete: (finished: Bool?) -> Void) {
+    
+    let request = authRequestPath("\(DribbbleAPI.Shots.rawValue)/\(shotID)/like", useMethod: .DELETE)
+    
+    Alamofire.request(request).responseJSON { (request, response, JSON) in
+        
+        if JSON.isSuccess {
+            
+            var dribbbleLike = Defaults[.dribbbleLike]
+            
+            dribbbleLike["\(shotID)"] = false
+            
+            Defaults[.dribbbleLike] = dribbbleLike
+            
+            complete(finished: true)
+            
+        } else {
+            complete(finished: nil)
+        }
+        
+        //
+        //        handleError(response, JSON: JSON.value, complete: { (statusCode, errorMesage) in
+        //            complete(nil)
+        //        })
+        
+    }
+}

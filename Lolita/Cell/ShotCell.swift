@@ -22,6 +22,11 @@ class ShotCell: UICollectionViewCell {
         case Detail
     }
     
+    enum ShotLikeStatus: Int {
+        case Like = 0
+        case DisLike
+    }
+    
     var state: ShotCellState! {
         didSet {
             switch self.state! {
@@ -37,6 +42,7 @@ class ShotCell: UICollectionViewCell {
     
     @IBOutlet weak var shotDetailsWebView: UIWebView!
     
+    var likeStatus: ShotLikeStatus?
     
     @IBOutlet weak var shotImageTop: NSLayoutConstraint!
     
@@ -70,7 +76,26 @@ class ShotCell: UICollectionViewCell {
     
     var windowFrame: CGRect?
     
-    var shot: DribbbleShot?
+    var shot: DribbbleShot? {
+        didSet {
+            if let shot = shot {
+                var dribbbleLike = Defaults[.dribbbleLike]
+                
+                if let likeStatus = dribbbleLike["\(shot.id)"] as? Bool {
+                    
+                    if likeStatus {
+                        setLikeStatusWithReverse(false)
+                    } else {
+                        setLikeStatusWithReverse(true)
+                    }
+                    
+                } else {
+                    setLikeStatusWithReverse(true)
+                    
+                }
+            }
+        }
+    }
     
     var blurView : UIVisualEffectView?
     
@@ -86,7 +111,7 @@ class ShotCell: UICollectionViewCell {
         shotContainerView.layer.cornerRadius = 8
         shotContainerView.layer.masksToBounds = true
         shotImageView.clipsToBounds = true
-        
+
         shotDetailsWebView.scrollView.contentInset = UIEdgeInsets(top: ShotWebViewTopInset, left: 0, bottom: ShotWebViewBottomInset, right: 0)
         shotDetailsWebView.userInteractionEnabled = false
         shotDetailsWebView.scrollView.delegate = self
@@ -100,26 +125,55 @@ class ShotCell: UICollectionViewCell {
         
 //        shotDetailFooter.userInteractionEnabled = false
 
-        if let shot = shot {
-            
-            var dribbbleLike = Defaults[.dribbbleLike]
-            
-            if let likeStatus = dribbbleLike["\(shot.id)"] as? Bool {
-                if likeStatus {
-                    print("User Like this")
-                }
-                
-            }
-        }
         // Initialization code
     }
+    
+    func setLikeStatusWithReverse(reverse: Bool) {
+        if reverse {
+            self.likeStatus = .DisLike
+            likeButton.setImage(UIImage(named: "like"), forState: UIControlState.Normal)
+        } else {
+            self.likeStatus = .Like
+            likeButton.setImage(UIImage(named: "like_highlighted"), forState: UIControlState.Normal)
+        }
+    }
+    
+    
+    func refreshLikeStatusWithShot(shot: DribbbleShot) {
+        var dribbbleLike = Defaults[.dribbbleLike]
+        
+        if let likeStatus = dribbbleLike["\(shot.id)"] as? Bool {
+            
+            if likeStatus {
+                setLikeStatusWithReverse(true)
+            } else {
+                setLikeStatusWithReverse(false)
+            }
+            
+        } else {
+            setLikeStatusWithReverse(false)
+            
+        }
+    }
+    
     @IBAction func toggleLikeStatus(sender: AnyObject) {
         if let shot = shot {
-             likeByShotID(shot.id, complete: { (likeID) -> Void in
-                if let likeID = likeID {
-                    print("Like Success")
-                }
-             })
+            
+            if self.likeStatus == .Like {
+                unLikeByShotID(shot.id, complete: { (finished) -> Void in
+                    if let _ = finished {
+                        self.shot = shot
+                    }
+                })
+            } else {
+                likeByShotID(shot.id, complete: { (likeID) -> Void in
+                    if let _ = likeID {
+                        self.shot = shot
+                    }
+                })
+            }
+            
+            refreshLikeStatusWithShot(shot)
         }
        
     }
