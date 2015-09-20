@@ -24,6 +24,8 @@ var MenuOpen = false
 
 let LolitaColor = UIColor(red: 80.0/255.0, green: 227.0/255.0, blue: 194.0/255.0, alpha: 1.0)
 
+var DribbbleShotDownloading = [Int: Bool]()
+
 enum LolitaSelectChannel: Int {
     case Popular = 0
     case Animated

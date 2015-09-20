@@ -51,40 +51,62 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     }
     
     func configCellWithShot(cell: ShotCell, shot: DribbbleShot) {
+        
+        var filePath: String?
+        
         if let hidpi = shot.images["hidpi"] as? String  {
+            filePath = hidpi
+        } else {
+            if let normal = shot.images["normal"] as? String {
+                filePath = normal
+            }
+            print("need fallback")
+        }
+        
+        if let filePath = filePath {
             
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
                 
                 var image: OLImage?
                 
-                if let data = findImageDataWithURL(hidpi, shotID: shot.id) {
+                if let data = findImageDataWithURL(filePath, shotID: shot.id) {
                     
                     let animatedImage = OLImage(data:data)
                     image = animatedImage
                     
                 } else {
                     
-                    let data =  NSData(contentsOfURL: NSURL(string:hidpi)!)
+                    if let _ = DribbbleShotDownloading[shot.id] {
+                        return
+                    }
+                    
+                    DribbbleShotDownloading[shot.id] = true
+                    
+                    let data = NSData(contentsOfURL: NSURL(string:filePath)!)
+                    
+                    print(filePath)
                     
                     let animatedImage = OLImage(data:data!)
                     
                     image = animatedImage
                     
-                    saveImageDataWithURL(data!, URL: hidpi, shotID: shot.id)
+                    saveImageDataWithURL(data!, URL: filePath, shotID: shot.id)
                 }
                 
-
+                
                 // 主界面的头像
                 if cell.shot?.id == shot.id {
                     cell.shotImageView.image = image
                 } else {
                     print("Cell Skiped")
                 }
-
+                
             }
         }
 
+
     }
+    
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: 338.0)

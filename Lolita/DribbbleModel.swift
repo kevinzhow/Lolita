@@ -65,7 +65,7 @@ struct DribbbleUser {
     let projects_count: Int
     let rebounds_received_count: Int
     let shots_count: Int
-    let teams_count: Int
+    let teams_count: Int?
     let can_upload_shot: Bool
     let type: String
     let pro: Bool
@@ -75,7 +75,7 @@ struct DribbbleUser {
     let likes_url: String
     let projects_url: String
     let shots_url: String
-    let teams_url: String
+    let teams_url: String?
     let created_at: NSDate
     let updated_at: NSDate
 }
@@ -174,14 +174,12 @@ func userFromInfo(info: JSONDictionary) -> DribbbleUser? {
         projects_count = info["projects_count"] as? Int,
         rebounds_received_count = info["rebounds_received_count"] as? Int,
         shots_count = info["shots_count"] as? Int,
-        teams_count = info["teams_count"] as? Int,
         can_upload_shot = info["can_upload_shot"] as? Bool,
         type = info["type"] as? String,
         pro = info["pro"] as? Bool,
         buckets_url = info["buckets_url"] as? String,
         followers_url = info["followers_url"] as? String,
         following_url = info["following_url"] as? String,
-        teams_url = info["teams_url"] as? String,
         likes_url = info["likes_url"] as? String,
         projects_url = info["projects_url"] as? String,
         shots_url = info["shots_url"] as? String,
@@ -189,6 +187,8 @@ func userFromInfo(info: JSONDictionary) -> DribbbleUser? {
         updated_at = dateFromString(info["updated_at"])
     {
         let location = info["location"] as? String
+        let teams_count = info["teams_count"] as? Int
+        let teams_url = info["teams_url"] as? String
     
         return DribbbleUser(id: id, name: name, username: username, html_url: html_url, avatar_url: avatar_url, bio: bio, location: location, links: links, buckets_count: buckets_count, comments_received_count: comments_received_count, followers_count: followers_count, followings_count: followings_count, likes_count: likes_count, likes_received_count: likes_received_count, projects_count: projects_count, rebounds_received_count: rebounds_received_count, shots_count: shots_count, teams_count: teams_count, can_upload_shot: can_upload_shot, type: type, pro: pro, buckets_url: buckets_url, followers_url: followers_url, following_url: following_url, likes_url: likes_url, projects_url: projects_url, shots_url: shots_url, teams_url: teams_url, created_at: created_at, updated_at: updated_at)
     } else {
