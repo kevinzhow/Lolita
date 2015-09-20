@@ -24,11 +24,11 @@
                                 <rect key="frame" x="0.0" y="268" width="369" height="55"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3DE-aW-RcO">
-                                        <rect key="frame" x="15" y="16" width="19" height="22"/>
+                                        <rect key="frame" x="0.0" y="7" width="50" height="40"/>
                                         <animations/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="22" id="KIe-cW-90n"/>
-                                            <constraint firstAttribute="width" constant="19" id="Pkf-HQ-jTm"/>
+                                            <constraint firstAttribute="height" constant="40" id="KIe-cW-90n"/>
+                                            <constraint firstAttribute="width" constant="50" id="Pkf-HQ-jTm"/>
                                         </constraints>
                                         <state key="normal" image="like"/>
                                         <connections>
@@ -79,7 +79,7 @@
                                     <constraint firstAttribute="height" constant="55" id="TDz-eM-fGm"/>
                                     <constraint firstAttribute="trailing" secondItem="MAv-KW-Vyj" secondAttribute="trailing" constant="15" id="aCY-om-QG2"/>
                                     <constraint firstItem="FLZ-yn-7q9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3DE-aW-RcO" secondAttribute="trailing" constant="20" id="kDf-WA-svi"/>
-                                    <constraint firstItem="3DE-aW-RcO" firstAttribute="leading" secondItem="2Jb-S1-Du1" secondAttribute="leading" constant="15" id="wFs-XH-Hrz"/>
+                                    <constraint firstItem="3DE-aW-RcO" firstAttribute="leading" secondItem="2Jb-S1-Du1" secondAttribute="leading" id="wFs-XH-Hrz"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E8H-U5-5uK">

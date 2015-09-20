@@ -78,10 +78,22 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var menuButton: UIButton!
     
+    func matchMenuOpen(open: Bool) {
+        if open {
+            menuButton.tintColor = UIColor.whiteColor()
+            profileButton.tintColor = UIColor.whiteColor()
+        } else {
+            menuButton.tintColor = UIColor.blackColor().colorWithAlphaComponent(0.8)
+            profileButton.tintColor = UIColor.blackColor().colorWithAlphaComponent(0.8)
+        }
+    }
+    
     @IBAction func toggleMenu(sender: AnyObject) {
         
         if MenuOpen {
             MenuOpen = false
+            
+            matchMenuOpen(false)
             
             UIView.animateWithDuration(0.3, delay: 0.1, options: UIViewAnimationOptions.AllowUserInteraction, animations: {
                 if self.shotsCollectionView!.contentOffset.y <= -40 {
@@ -114,6 +126,8 @@ class ViewController: UIViewController {
                     self.handleTopViewBlurViewExisit(self.shotsCollectionView!)
             })
         } else {
+            
+            matchMenuOpen(true)
             menuLastHeight = topBarView.frame.height
             MenuOpen = true
             self.addBlurViewOnTopView()
@@ -259,6 +273,9 @@ class ViewController: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "moveSelectedCellBack:", name: DribbleMoveSelectedCellBack, object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "lolitaBecomeTimeline", name: LolitaToTimeLineNotification, object: nil)
+        
+        
+        matchMenuOpen(false)
         // Do any additional setup after loading the view, typically from a nib.
     }
     

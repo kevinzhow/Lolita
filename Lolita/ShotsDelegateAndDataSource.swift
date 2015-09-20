@@ -189,6 +189,10 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
+        if MenuOpen {
+            return
+        }
+        
         let cell = collectionView.cellForItemAtIndexPath(indexPath) as! ShotCell
         
         selectedCell = cell
@@ -266,7 +270,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
             dispatch_async(dispatch_get_main_queue(),{
                 SVProgressHUD.dismiss()
                 
-                delay(0.5, work: { () -> Void in
+                delay(1.0, work: { () -> Void in
                     SVProgressHUD.setBackgroundColor(UIColor.whiteColor())
                 })
             })
