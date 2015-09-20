@@ -84,7 +84,7 @@ class ShotCell: UICollectionViewCell {
         shotContainerView.layer.masksToBounds = true
         shotImageView.clipsToBounds = true
         
-        shotDetailsWebView.scrollView.contentInset = UIEdgeInsets(top: 340, left: 0, bottom: 20, right: 0)
+        shotDetailsWebView.scrollView.contentInset = UIEdgeInsets(top: 340, left: 0, bottom: 50, right: 0)
         shotDetailsWebView.userInteractionEnabled = false
         shotDetailsWebView.scrollView.delegate = self
         shotDetailsWebView.backgroundColor = UIColor.clearColor()
