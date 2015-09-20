@@ -102,7 +102,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
 //        print(scrollView.contentOffset.y)
         
         let distanceFromBottom = scrollView.contentSize.height - scrollView.contentOffset.y
-        print(distanceFromBottom)
+
         if distanceFromBottom < view.frame.height*5 {
             loadPage(currentPage + 1)
         }
@@ -240,36 +240,34 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
             if let shots = shots {
                 
                 self.shots.appendContentsOf(shots)
-                
-                dispatch_async(dispatch_get_main_queue(),{
                     
-                    if self.shots.count > productCount {
-                        dispatch_async(dispatch_get_main_queue(), {
+                if self.shots.count > productCount {
+                    dispatch_async(dispatch_get_main_queue(), {
+                        
+                        let totalInsert = self.shots.count - productCount
+                        
+                        var indexPaths = [NSIndexPath]()
+                        
+                        for i in 0...(totalInsert-1) {
                             
-                            let totalInsert = self.shots.count - productCount
+                            let row = productCount + i
                             
-                            var indexPaths = [NSIndexPath]()
+                            let indexPath = NSIndexPath(forRow: row, inSection: 0)
                             
-                            for i in 0...(totalInsert-1) {
-                                
-                                let row = productCount + i
-                                
-                                let indexPath = NSIndexPath(forRow: row, inSection: 0)
-                                
-                                indexPaths.append(indexPath)
-                            }
-                            
-                            print(indexPaths.count)
-                            
-                            self.shotsCollectionView?.insertItemsAtIndexPaths(indexPaths)
-                            self.loadingNewPage = false
-                            self.currentPage += 1
-                        })
-                    } else {
+                            indexPaths.append(indexPath)
+                        }
+                        
+                        print(indexPaths.count)
+                        
+                        self.shotsCollectionView?.insertItemsAtIndexPaths(indexPaths)
                         self.loadingNewPage = false
-                    }
-                    
-                })
+                        self.currentPage += 1
+                    })
+                } else {
+                    self.loadingNewPage = false
+                }
+                
+
             } else {
                 self.loadingNewPage = false
             }

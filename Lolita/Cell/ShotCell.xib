@@ -7,16 +7,16 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ShotCell" customModule="Lolita" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="399" height="568"/>
+            <rect key="frame" x="0.0" y="0.0" width="399" height="637"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="399" height="568"/>
+                <rect key="frame" x="0.0" y="0.0" width="399" height="637"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oqg-h0-Usg">
-                        <rect key="frame" x="15" y="8" width="369" height="552"/>
+                        <rect key="frame" x="15" y="8" width="369" height="621"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8f9-Hl-bFu">
-                                <rect key="frame" x="0.0" y="0.0" width="369" height="552"/>
+                                <rect key="frame" x="0.0" y="0.0" width="369" height="621"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
@@ -80,12 +80,50 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E8H-U5-5uK">
-                                <rect key="frame" x="0.0" y="552" width="369" height="50"/>
+                                <rect key="frame" x="0.0" y="621" width="369" height="50"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dP2-Iu-BOl">
                                         <rect key="frame" x="0.0" y="0.0" width="369" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lv7-Nz-rrf">
+                                                <rect key="frame" x="249" y="16" width="90" height="18"/>
+                                                <animations/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="90" id="DNe-ML-eb2"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="13"/>
+                                                <inset key="titleEdgeInsets" minX="24" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" title="Bucket" image="Cart">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="toggleBucket:" destination="gTV-IL-0wX" eventType="touchUpInside" id="nXo-9P-f4S"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="spR-e8-rGC">
+                                                <rect key="frame" x="10" y="16" width="90" height="18"/>
+                                                <animations/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="90" id="Zzq-Up-Ln5"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="13"/>
+                                                <inset key="titleEdgeInsets" minX="24" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" title="Share" image="share">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="shareDribbble:" destination="gTV-IL-0wX" eventType="touchUpInside" id="j9h-iv-doW"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
                                         <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="spR-e8-rGC" firstAttribute="leading" secondItem="dP2-Iu-BOl" secondAttribute="leading" constant="10" id="O8I-Oo-XLS"/>
+                                            <constraint firstAttribute="trailing" secondItem="lv7-Nz-rrf" secondAttribute="trailing" constant="30" id="VvM-wf-yCR"/>
+                                            <constraint firstItem="lv7-Nz-rrf" firstAttribute="centerY" secondItem="dP2-Iu-BOl" secondAttribute="centerY" id="cVc-gJ-tbx"/>
+                                            <constraint firstItem="spR-e8-rGC" firstAttribute="centerY" secondItem="dP2-Iu-BOl" secondAttribute="centerY" id="f8y-Tw-doa"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <animations/>
@@ -145,7 +183,7 @@
                 <constraint firstAttribute="trailing" secondItem="Oqg-h0-Usg" secondAttribute="trailing" constant="15" id="VeS-Yg-NHz"/>
                 <constraint firstItem="Oqg-h0-Usg" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="qPr-s2-fX7"/>
             </constraints>
-            <size key="customSize" width="399" height="568"/>
+            <size key="customSize" width="399" height="637"/>
             <connections>
                 <outlet property="authorLabel" destination="Kye-eH-KZB" id="q2L-RV-seS"/>
                 <outlet property="avatarImageView" destination="MAv-KW-Vyj" id="puu-kb-kBb"/>
@@ -153,6 +191,7 @@
                 <outlet property="bottomBarBottom" destination="caM-T4-76d" id="PK4-q0-UGs"/>
                 <outlet property="bottomBarContainerView" destination="dP2-Iu-BOl" id="zW4-S5-GHb"/>
                 <outlet property="likeButton" destination="3DE-aW-RcO" id="0lb-Io-eFl"/>
+                <outlet property="shareDribbble" destination="spR-e8-rGC" id="lDH-PE-Vc8"/>
                 <outlet property="shotContainerBottom" destination="UYi-Rp-uUP" id="bIw-a8-Nxj"/>
                 <outlet property="shotContainerLeading" destination="N3N-es-3t4" id="6Pc-k5-GKs"/>
                 <outlet property="shotContainerTop" destination="qPr-s2-fX7" id="nil-gC-1Bo"/>
@@ -165,10 +204,12 @@
                 <outlet property="shotImageView" destination="HD5-OZ-Duf" id="Etn-IU-snK"/>
                 <outlet property="shotTimeLabel" destination="90S-4d-7h3" id="hwX-hr-jm8"/>
             </connections>
-            <point key="canvasLocation" x="199.5" y="476"/>
+            <point key="canvasLocation" x="199.5" y="510.5"/>
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="Cart" width="16" height="15"/>
         <image name="like" width="19" height="17"/>
+        <image name="share" width="16" height="16"/>
     </resources>
 </document>

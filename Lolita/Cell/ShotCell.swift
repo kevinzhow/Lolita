@@ -143,8 +143,9 @@ class ShotCell: UICollectionViewCell {
                             
                             contents = contents.stringByReplacingOccurrencesOfString("<span class='hidden'>#ShotComments</span>", withString: commentsContent)
                             
-                            self.shotDetailsWebView.loadHTMLString(contents as String, baseURL: NSBundleURL)
-                            
+                            dispatch_async(dispatch_get_main_queue(), {
+                                self.shotDetailsWebView.loadHTMLString(contents as String, baseURL: NSBundleURL)
+                            })
                             self.pageLoaded = true
                             
                         } catch let error as NSError {
@@ -210,6 +211,7 @@ class ShotCell: UICollectionViewCell {
         
         blurView!.frame = bottomBar.bounds
         bottomBar.insertSubview(blurView!, aboveSubview: bottomBarContainerView)
+        bottomBar.sendSubviewToBack(blurView!)
         bottomBar.hidden = false
         
         prepareShotWebView()
@@ -259,7 +261,6 @@ class ShotCell: UICollectionViewCell {
         
         let layer = shotContainerView.layer
         
-        print(to)
         var rotationAndPerspectiveTransform = CATransform3DIdentity
         rotationAndPerspectiveTransform.m34 = 1.0 / -500
         rotationAndPerspectiveTransform = CATransform3DRotate(rotationAndPerspectiveTransform, CGFloat(to * M_PI / 180.0), 1.0, 0.0, 0.0)
@@ -276,4 +277,12 @@ class ShotCell: UICollectionViewCell {
         layer.transform = rotationAndPerspectiveTransform
     }
 
+    @IBAction func shareDribbble(sender: AnyObject) {
+        
+    }
+    
+    @IBOutlet weak var shareDribbble: UIButton!
+    
+    @IBAction func toggleBucket(sender: AnyObject) {
+    }
 }
