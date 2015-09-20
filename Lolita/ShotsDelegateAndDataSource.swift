@@ -201,9 +201,9 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
             
             let newFrame = CGRect(x: tapPointInView.x, y: tapPointInView.y, width: selectedCell.frame.width, height: selectedCell.frame.height)
             
-            
             selectedCell.frame = newFrame
-
+            
+            selectedCell.handleCardChange(-12)
             
             UIView.animateKeyframesWithDuration(0.5, delay: 0, options: UIViewKeyframeAnimationOptions.AllowUserInteraction, animations: {
                 

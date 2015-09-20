@@ -244,12 +244,15 @@ class ShotCell: UICollectionViewCell {
         layer.addAnimation(transformAnim,
             forKey: "transform")
         
+        layer.transform = CATransform3DIdentity
+        
     }
     
     func handleCardChange(to: Double) {
         
         let layer = shotContainerView.layer
         
+        print(to)
         var rotationAndPerspectiveTransform = CATransform3DIdentity
         rotationAndPerspectiveTransform.m34 = 1.0 / -500
         rotationAndPerspectiveTransform = CATransform3DRotate(rotationAndPerspectiveTransform, CGFloat(to * M_PI / 180.0), 1.0, 0.0, 0.0)
@@ -258,6 +261,7 @@ class ShotCell: UICollectionViewCell {
     }
     
     func ResetCardChange() {
+
         let layer = shotContainerView.layer
         
         let rotationAndPerspectiveTransform = CATransform3DIdentity
