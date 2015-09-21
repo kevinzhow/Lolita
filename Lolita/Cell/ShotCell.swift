@@ -118,10 +118,11 @@ class ShotCell: UICollectionViewCell {
         shotDetailsWebView.backgroundColor = UIColor.clearColor()
         shotDetailsWebView.scrollView.backgroundColor = UIColor.clearColor()
         shotDetailsWebView.opaque = false
-        blurView = UIVisualEffectView(effect: darkBlur)
-        
+
+        shotDetailsWebView.hidden = true
         avatarImageView.layer.cornerRadius = avatarImageView.frame.size.height/2.0
         avatarImageView.layer.masksToBounds = true
+        blurView = UIVisualEffectView(effect: darkBlur)
         
 //        shotDetailFooter.userInteractionEnabled = false
 
@@ -247,7 +248,7 @@ class ShotCell: UICollectionViewCell {
         shotContainerLeading.constant = 15
         shotContainerView.layer.cornerRadius = 8
         shotDetailsWebView.userInteractionEnabled = false
-        
+        shotDetailsWebView.hidden = true
         changeShotContainerRadius(0, to: 8)
         
         bottomBar.hidden = true
@@ -279,7 +280,7 @@ class ShotCell: UICollectionViewCell {
         shotContainerBottom.constant = 0
         shotContainerLeading.constant = 0
         shotDetailsWebView.userInteractionEnabled = true
-        
+        shotDetailsWebView.hidden = false
         changeShotContainerRadius(8, to: 0)
         
         if windowFrame?.origin.y > 300 {
