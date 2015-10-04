@@ -7,7 +7,6 @@ target 'Lolita' do
  pod 'OLImageView' 
  pod 'Kingfisher'
  pod 'Alamofire'
- pod 'GCDWebServer'
  pod 'SVProgressHUD'
  pod 'SwiftyUserDefaults'
 end

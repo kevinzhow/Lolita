@@ -1,9 +1,6 @@
 PODS:
   - Alamofire (2.0.1)
   - DateTools (1.7.0)
-  - GCDWebServer (3.2.7):
-    - GCDWebServer/Core (= 3.2.7)
-  - GCDWebServer/Core (3.2.7)
   - Kingfisher (1.6.0)
   - OLImageView (1.5):
     - OLImageView/Core (= 1.5)
@@ -14,7 +11,6 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - DateTools
-  - GCDWebServer
   - Kingfisher
   - OLImageView
   - SVProgressHUD
@@ -23,7 +19,6 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Alamofire: 1d8e208d616fbbfd2391b15eae766d07c96cdc49
   DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
-  GCDWebServer: 76a9540371d5f12f850b32ec7f555dd2d266e543
   Kingfisher: 3308d487e5c2a0fba9c1054fc3b8c45923e03c40
   OLImageView: 28901febc2363d341f7fdd91583be41a1e48d9b7
   SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1

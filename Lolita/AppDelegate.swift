@@ -43,6 +43,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
     }
+    
+    func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
+        
+        if let code = url.queryDictionary()["code"] {
+            
+            dribbbleTokenWithCode(code, complete: { (finish) -> Void in
+                print("Token Got")
+                if finish {
+                    NSNotificationCenter.defaultCenter().postNotificationName(LolitaToTimeLineNotification, object: nil)
+                } else {
+                    
+                }
+                
+            })
+        }
+        
+        
+        return true
+    }
 
     // MARK: - Core Data stack
 

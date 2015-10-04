@@ -18,8 +18,24 @@ let DribbbleOAuthToken = "https://dribbble.com/oauth/token"
 let DribbbleClientID = "77e570ab17808f0699b6e01b8fdd565e17cd8147599a6f317b478aff4b6560c7"
 let DribbbleClientSecret = "2975d86f61ac0cf7e10f929203cc44567182a9322eb2a07dee7a2d56f6ae093f"
 let dribbbleBaseURL = "https://api.dribbble.com/v1"
-let callbackURL = "http://127.0.0.1:8180/dribbble"
+let callbackURL = "lolita://oauth"
 let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
+
+extension NSURL {
+    func queryDictionary() -> [String:String] {
+        let components = self.query?.componentsSeparatedByString("&")
+        var dictionary = [String:String]()
+        
+        for pairs in components ?? [] {
+            let pair = pairs.componentsSeparatedByString("=")
+            if pair.count == 2 {
+                dictionary[pair[0]] = pair[1]
+            }
+        }
+        
+        return dictionary
+    }
+}
 
 func saveImageDataWithURL(data: NSData, URL: String, shotID: Int) {
     
@@ -148,6 +164,7 @@ func dribbbleTokenWithCode(code: String , complete: (finish: Bool) -> Void) {
                 complete(finish: true)
                 
             } else {
+                
                 dispatch_async(dispatch_get_main_queue(),{
                     
                     SVProgressHUD.showErrorWithStatus("Please Try Again")

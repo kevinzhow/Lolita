@@ -169,9 +169,9 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="Y7S-R5-gh1"/>
                                 <exclude reference="OeH-Ur-6Ur"/>
                                 <exclude reference="qsa-tb-suS"/>
-                                <exclude reference="Y7S-R5-gh1"/>
                             </mask>
                         </variation>
                     </view>

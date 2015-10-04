@@ -8,7 +8,6 @@
 
 import UIKit
 import SafariServices
-import GCDWebServer
 import SwiftyUserDefaults
 import SVProgressHUD
 
@@ -27,6 +26,7 @@ let LolitaColor = UIColor(red: 80.0/255.0, green: 227.0/255.0, blue: 194.0/255.0
 var DribbbleShotDownloading = [Int: Bool]()
 
 enum LolitaSelectChannel: Int {
+    
     case Popular = 0
     case Animated
     case Debuts
@@ -83,6 +83,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var topBarView: UIView!
     
     @IBOutlet weak var menuButton: UIButton!
+    
+    var safariViewController: SFSafariViewController?
     
     func matchMenuOpen(open: Bool) {
         if open {
@@ -232,35 +234,11 @@ class ViewController: UIViewController {
     
     @IBAction func signInWithDribbble(sender: AnyObject) {
         
-        let URL = "\(DribbbleOauthURL)?client_id=\(DribbbleClientID)&redirect_uri=http://127.0.0.1:8180/dribbble&scope=public+comment+write"
+        let URL = "\(DribbbleOauthURL)?client_id=\(DribbbleClientID)&redirect_uri=\(callbackURL)&scope=public+comment+write"
         
-        let safariViewController = SFSafariViewController(URL: NSURL(string:URL)!)
+        safariViewController = SFSafariViewController(URL: NSURL(string:URL)!)
         
-        let webServer = GCDWebServer()
-        
-        webServer.addDefaultHandlerForMethod("GET", requestClass: GCDWebServerRequest.self, processBlock: {request in
-            
-            if let query = request.query, code = query["code"] as? String {
-//                print(code)
-                
-                dribbbleTokenWithCode(code, complete: { (finish) -> Void in
-                    print("Token Got")
-                    webServer.stop()
-                    NSNotificationCenter.defaultCenter().postNotificationName(LolitaToTimeLineNotification, object: nil)
-                })
-            }
-            
-            safariViewController.dismissViewControllerAnimated(true, completion: nil)
-            
-            return GCDWebServerDataResponse(HTML:"<html><body><p>Wellcome to Lolita</p></body></html>")
-            
-        })
-        
-        webServer.startWithPort(8180, bonjourName: "GCD Web Server")
-        
-        print("Visit \(webServer.serverURL) in your web browser")
-        
-        self.presentViewController(safariViewController, animated: true, completion: nil)
+        self.presentViewController(safariViewController!, animated: true, completion: nil)
     }
 
     override func viewDidLoad() {
@@ -286,6 +264,11 @@ class ViewController: UIViewController {
     }
     
     func lolitaBecomeTimeline() {
+        
+        if let safariViewController = safariViewController {
+            safariViewController.dismissViewControllerAnimated(true, completion: nil)
+        }
+        
         menuChannel = .Popular
         self.state = .Timeline
     }
@@ -351,23 +334,6 @@ class ViewController: UIViewController {
             SVProgressHUD.show()
         })
         
-//        let animation = CABasicAnimation(keyPath: "transform")
-//        
-//        var tr = CATransform3DIdentity
-//        tr = CATransform3DTranslate(tr, appLogoImage.bounds.size.width/2, appLogoImage.bounds.size.height/2, 0)
-//        tr = CATransform3DScale(tr, 0.9, 0.9, 1)
-//        tr = CATransform3DTranslate(tr, -appLogoImage.bounds.size.width/2, -appLogoImage.bounds.size.height/2, 0)
-//        animation.toValue = NSValue(CATransform3D: tr)
-//        
-////        animation.fromValue = 1.0
-//        animation.duration = 0.8
-////        animation.toValue = 1.5
-//        animation.repeatCount = 10
-//        animation.autoreverses = true
-////        animation.fillMode = kCAFillModeForwards
-//        animation.removedOnCompletion = false
-//        
-//        appLogoImage.layer.addAnimation(animation, forKey: "transfrom.scale")
     }
 
 }
