@@ -35,7 +35,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
             if shot.animated {
                 configCellWithShot(cell, shot: shot)
             } else {
-                cell.shotImageView.kf_setImageWithURL(NSURL(string:normalImage )!, placeholderImage: nil, optionsInfo: [.Options: KingfisherOptions.BackgroundDecode], completionHandler:nil)
+                cell.shotImageView.kf_setImageWithURL(NSURL(string:normalImage )!, placeholderImage: nil, optionsInfo: [.Options([KingfisherOptions.BackgroundDecode])], completionHandler:nil)
             }
             
         }
@@ -44,7 +44,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         
         cell.authorLabel.text = "by \(shot.user.username)"
         cell.shotTimeLabel.text = shot.created_at.timeAgoSinceNow()
-        cell.avatarImageView.kf_setImageWithURL(NSURL(string:shot.user.avatar_url)!, placeholderImage: nil, optionsInfo: [.Options: KingfisherOptions.BackgroundDecode], completionHandler: { (image, error, cacheType, imageURL) -> () in
+        cell.avatarImageView.kf_setImageWithURL(NSURL(string:shot.user.avatar_url)!, placeholderImage: nil, optionsInfo: [.Options([KingfisherOptions.BackgroundDecode])], completionHandler: { (image, error, cacheType, imageURL) -> () in
         })
         
         return cell

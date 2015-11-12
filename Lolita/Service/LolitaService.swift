@@ -146,12 +146,12 @@ func dribbbleTokenWithCode(code: String , complete: (finish: Bool) -> Void) {
     ]
     
     Alamofire.request(.POST, DribbbleOAuthToken, parameters: parameters)
-        .responseJSON { _, _, result in
+        .responseJSON { response in
             
-            print("Success: \(result.isSuccess)")
+            print("Success: \(response.result.isSuccess)")
 //            print("Response String: \(result.value)")
             
-            if let json = result.value as? [String: AnyObject], access_token = json["access_token"] as? String {
+            if let json = response.result.value as? [String: AnyObject], access_token = json["access_token"] as? String {
                 
                 print("User OAuth Finished")
                 

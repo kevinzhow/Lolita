@@ -29,11 +29,11 @@ func shotsByListType(type: LolitaSelectChannel, page: Int, complete: (shots: [Dr
     
     let request = authRequestPath(DribbbleAPI.Shots.rawValue + "?page=\(page)&per_page=50&list=\(type.HumanRead)", useMethod: .GET)
     
-    Alamofire.request(request).responseJSON { (request, response, JSON) in
+    Alamofire.request(request).responseJSON { (response) in
         
-        if JSON.isSuccess {
+        if response.result.isSuccess {
             
-            if let JSON = JSON.value as? [JSONDictionary] {
+            if let JSON = response.result.value as? [JSONDictionary] {
                 print("Profile Got")
                 let shots = JSON.map({ shotFromInfo($0) }).filter({ $0 != nil }).map({ $0! })
                 complete(shots: shots)
@@ -57,11 +57,11 @@ func followedShots(page: Int, complete: (shots: [DribbbleShot]?) -> Void) {
     
     let request = authRequestPath(DribbbleAPI.ShotsByFollowed.rawValue + "?page=\(page)&per_page=50", useMethod: .GET)
     
-    Alamofire.request(request).responseJSON { (request, response, JSON) in
+    Alamofire.request(request).responseJSON { (response) in
         
-        if JSON.isSuccess {
+        if response.result.isSuccess {
             
-            if let JSON = JSON.value as? [JSONDictionary] {
+            if let JSON = response.result.value as? [JSONDictionary] {
                 print("Profile Got")
                 let shots = JSON.map({ shotFromInfo($0) }).filter({ $0 != nil }).map({ $0! })
                 complete(shots: shots)
@@ -85,11 +85,11 @@ func commentsByShotID(shotID: Int, complete: (comments: [DribbbleComment]?) -> V
     
     let request = authRequestPath("\(DribbbleAPI.Shots.rawValue)/\(shotID)/comments", useMethod: .GET)
     
-    Alamofire.request(request).responseJSON { (request, response, JSON) in
+    Alamofire.request(request).responseJSON { (response) in
         
-        if JSON.isSuccess {
+        if response.result.isSuccess {
             
-            if let JSON = JSON.value as? [JSONDictionary] {
+            if let JSON = response.result.value as? [JSONDictionary] {
                 print("Comments Got")
                 let comments = JSON.map({ commentFromInfo($0) }).filter({ $0 != nil }).map({ $0! })
                 complete(comments: comments)
@@ -113,11 +113,11 @@ func likeByShotID(shotID: Int, complete: (likeID: Int?) -> Void) {
     
     let request = authRequestPath("\(DribbbleAPI.Shots.rawValue)/\(shotID)/like", useMethod: .POST)
     
-    Alamofire.request(request).responseJSON { (request, response, JSON) in
+    Alamofire.request(request).responseJSON { (response) in
         
-        if JSON.isSuccess {
+        if response.result.isSuccess {
             
-            if let JSON = JSON.value as? JSONDictionary, likeID = JSON["id"] as? Int {
+            if let JSON = response.result.value as? JSONDictionary, likeID = JSON["id"] as? Int {
                 print("Like Got")
                 
                 var dribbbleLike = Defaults[.dribbbleLike]
@@ -147,9 +147,9 @@ func unLikeByShotID(shotID: Int, complete: (finished: Bool?) -> Void) {
     
     let request = authRequestPath("\(DribbbleAPI.Shots.rawValue)/\(shotID)/like", useMethod: .DELETE)
     
-    Alamofire.request(request).responseJSON { (request, response, JSON) in
+    Alamofire.request(request).responseJSON { (response) in
         
-        if JSON.isSuccess {
+        if response.result.isSuccess {
             
             var dribbbleLike = Defaults[.dribbbleLike]
             

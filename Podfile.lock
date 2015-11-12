@@ -1,10 +1,10 @@
 PODS:
-  - Alamofire (2.0.1)
+  - Alamofire (3.1.2)
   - DateTools (1.7.0)
-  - Kingfisher (1.6.0)
-  - OLImageView (1.5):
-    - OLImageView/Core (= 1.5)
-  - OLImageView/Core (1.5)
+  - Kingfisher (1.8.0)
+  - OLImageView (1.5.1):
+    - OLImageView/Core (= 1.5.1)
+  - OLImageView/Core (1.5.1)
   - SVProgressHUD (1.1.3)
   - SwiftyUserDefaults (2.0.0)
 
@@ -17,11 +17,11 @@ DEPENDENCIES:
   - SwiftyUserDefaults
 
 SPEC CHECKSUMS:
-  Alamofire: 1d8e208d616fbbfd2391b15eae766d07c96cdc49
+  Alamofire: 7c16ca65f3c7e681fd925fd7f2dec7747ff96855
   DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
-  Kingfisher: 3308d487e5c2a0fba9c1054fc3b8c45923e03c40
-  OLImageView: 28901febc2363d341f7fdd91583be41a1e48d9b7
+  Kingfisher: 4d40a6d8a0030b575be66593cae3aea587971a67
+  OLImageView: e03cd533ce6b1a155acb9f708ab9b2e71ea070d5
   SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
   SwiftyUserDefaults: 1266e9734c68bcfbac8294ee84173dc8ba6db312
 
-COCOAPODS: 0.38.2
+COCOAPODS: 0.39.0

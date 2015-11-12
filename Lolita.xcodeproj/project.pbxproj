@@ -7,25 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		17A805EAE9261C7CCFAFDE60 /* Pods_Lolita.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 987BAEE1664F2047AA884005 /* Pods_Lolita.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		6A0A0F8C1BADC1AA001EBF98 /* ShotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0A0F8A1BADC1AA001EBF98 /* ShotCell.swift */; settings = {ASSET_TAGS = (); }; };
-		6A0A0F8D1BADC1AA001EBF98 /* ShotCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A0A0F8B1BADC1AA001EBF98 /* ShotCell.xib */; settings = {ASSET_TAGS = (); }; };
-		6A0A0F911BADC958001EBF98 /* DribbbleAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0A0F901BADC958001EBF98 /* DribbbleAPIService.swift */; settings = {ASSET_TAGS = (); }; };
-		6A0A0F931BADD19A001EBF98 /* DribbbleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0A0F921BADD19A001EBF98 /* DribbbleModel.swift */; settings = {ASSET_TAGS = (); }; };
-		6A0A0F951BADD365001EBF98 /* ShotsDelegateAndDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0A0F941BADD365001EBF98 /* ShotsDelegateAndDataSource.swift */; settings = {ASSET_TAGS = (); }; };
-		6A0A0F971BADD52A001EBF98 /* DribbbleFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0A0F961BADD52A001EBF98 /* DribbbleFlowLayout.swift */; settings = {ASSET_TAGS = (); }; };
+		17A805EAE9261C7CCFAFDE60 /* Pods_Lolita.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 987BAEE1664F2047AA884005 /* Pods_Lolita.framework */; };
+		6A0A0F8C1BADC1AA001EBF98 /* ShotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0A0F8A1BADC1AA001EBF98 /* ShotCell.swift */; };
+		6A0A0F8D1BADC1AA001EBF98 /* ShotCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A0A0F8B1BADC1AA001EBF98 /* ShotCell.xib */; };
+		6A0A0F911BADC958001EBF98 /* DribbbleAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0A0F901BADC958001EBF98 /* DribbbleAPIService.swift */; };
+		6A0A0F931BADD19A001EBF98 /* DribbbleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0A0F921BADD19A001EBF98 /* DribbbleModel.swift */; };
+		6A0A0F951BADD365001EBF98 /* ShotsDelegateAndDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0A0F941BADD365001EBF98 /* ShotsDelegateAndDataSource.swift */; };
+		6A0A0F971BADD52A001EBF98 /* DribbbleFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0A0F961BADD52A001EBF98 /* DribbbleFlowLayout.swift */; };
 		6AAC00041BAD98FD00190C0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAC00031BAD98FD00190C0D /* AppDelegate.swift */; };
 		6AAC00061BAD98FD00190C0D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAC00051BAD98FD00190C0D /* ViewController.swift */; };
 		6AAC00091BAD98FD00190C0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AAC00071BAD98FD00190C0D /* Main.storyboard */; };
 		6AAC000C1BAD98FD00190C0D /* Lolita.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6AAC000A1BAD98FD00190C0D /* Lolita.xcdatamodeld */; };
 		6AAC000E1BAD98FD00190C0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AAC000D1BAD98FD00190C0D /* Assets.xcassets */; };
 		6AAC00111BAD98FD00190C0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AAC000F1BAD98FD00190C0D /* LaunchScreen.storyboard */; };
-		6AAC00191BADA5E500190C0D /* LolitaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAC00181BADA5E500190C0D /* LolitaService.swift */; settings = {ASSET_TAGS = (); }; };
-		6AAC001C1BADBBDC00190C0D /* HomeStatesMechine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAC001B1BADBBDC00190C0D /* HomeStatesMechine.swift */; settings = {ASSET_TAGS = (); }; };
-		6AE73C8C1BAEDF9000D4B487 /* ShotComment.html in Resources */ = {isa = PBXBuildFile; fileRef = 6AE73C8A1BAEDF9000D4B487 /* ShotComment.html */; settings = {ASSET_TAGS = (); }; };
-		6AE73C8D1BAEDF9000D4B487 /* Shot.html in Resources */ = {isa = PBXBuildFile; fileRef = 6AE73C8B1BAEDF9000D4B487 /* Shot.html */; settings = {ASSET_TAGS = (); }; };
-		6AE73C921BAEF0E800D4B487 /* Infinity_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AE73C911BAEF0E800D4B487 /* Infinity_black.png */; settings = {ASSET_TAGS = (); }; };
-		6AE73C941BAEF48200D4B487 /* ShotCellScrollDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE73C931BAEF48200D4B487 /* ShotCellScrollDelegate.swift */; settings = {ASSET_TAGS = (); }; };
+		6AAC00191BADA5E500190C0D /* LolitaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAC00181BADA5E500190C0D /* LolitaService.swift */; };
+		6AAC001C1BADBBDC00190C0D /* HomeStatesMechine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAC001B1BADBBDC00190C0D /* HomeStatesMechine.swift */; };
+		6AE73C8C1BAEDF9000D4B487 /* ShotComment.html in Resources */ = {isa = PBXBuildFile; fileRef = 6AE73C8A1BAEDF9000D4B487 /* ShotComment.html */; };
+		6AE73C8D1BAEDF9000D4B487 /* Shot.html in Resources */ = {isa = PBXBuildFile; fileRef = 6AE73C8B1BAEDF9000D4B487 /* Shot.html */; };
+		6AE73C921BAEF0E800D4B487 /* Infinity_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AE73C911BAEF0E800D4B487 /* Infinity_black.png */; };
+		6AE73C941BAEF48200D4B487 /* ShotCellScrollDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE73C931BAEF48200D4B487 /* ShotCellScrollDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -203,7 +203,6 @@
 				TargetAttributes = {
 					6AACFFFF1BAD98FD00190C0D = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = ZF6B5F34CY;
 					};
 				};
 			};
@@ -420,7 +419,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Lolita/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kevinzhow.Lolita;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -437,7 +436,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Lolita/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kevinzhow.Lolita;
 				PRODUCT_NAME = "$(TARGET_NAME)";
